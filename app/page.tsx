@@ -102,7 +102,7 @@ export default function HomePage() {
         className="text-[12px]"
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
       >
-        <div className="ml-auto mr-auto relative w-full md:max-w-[990px]">
+        <div className="ml-auto mr-auto w-full md:max-w-[990px]" style={{ position: 'relative', zIndex: 0 }}>
           <Header />
 
           {/* Left Sidebar - Hidden on mobile */}
@@ -111,7 +111,7 @@ export default function HomePage() {
           </div>
 
           {/* Main content */}
-          <div className="w-full md:float-left md:w-[490px] min-h-[800px] relative" style={{ zIndex: 1 }}>
+          <div className="w-full md:float-left md:w-[490px] min-h-[800px]" style={{ position: 'relative', zIndex: 0 }}>
             {/* Search box */}
             <form>
               <div className="w-full">
