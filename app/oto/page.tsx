@@ -325,19 +325,17 @@ export default function OtoPage() {
                         </div>
 
                         {/* Dòng 2: Ảnh + Specs */}
-                        <div className="flex gap-3 items-start">
-                          <div className="flex-shrink-0 w-[120px]">
-                            <Image alt={property.imgAlt} src={property.img} width={120} height={90} unoptimized className="border object-cover w-[120px] h-[90px] border-[rgb(222,222,222)] rounded" />
+                        <div className="flex gap-2 items-start">
+                          <div className="flex-shrink-0 w-[110px]">
+                            <Image alt={property.imgAlt} src={property.img} width={110} height={85} unoptimized className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded" />
                           </div>
-                          <div className="flex-1 flex justify-center">
-                            <div className="grid grid-cols-2 auto-rows-min gap-x-4 gap-y-0.5">
-                              {property.specs.map((spec, i) => (
-                                <div key={i} className="text-[15px] text-[rgb(51,51,51)] flex items-center gap-1">
-                                  <span className="text-gray-500">·</span>
-                                  <span>{spec}</span>
-                                </div>
-                              ))}
-                            </div>
+                          <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-3 gap-y-0.5 pl-1">
+                            {property.specs.map((spec, i) => (
+                              <div key={i} className="text-[16px] text-[rgb(51,51,51)] flex items-center gap-1">
+                                <span className="text-gray-500">·</span>
+                                <span>{spec}</span>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       </Link>
@@ -365,8 +363,8 @@ export default function OtoPage() {
                             <IconLocation className="text-green-600 w-3 h-3" />
                             <span>{property.location}</span>
                           </div>
-                          <button className="text-[12px] text-gray-400 flex items-center gap-1">
-                            <IconStar className="text-gray-400 w-3 h-3" /> Lưu tin
+                          <button className="text-[15px] text-red-500 font-bold flex items-center gap-1">
+                            <IconStar className="text-red-500 w-4 h-4" /> Lưu tin
                           </button>
                         </div>
                       </div>
