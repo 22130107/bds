@@ -5,7 +5,8 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import MobileHeader from "@/components/MobileHeader";
 import Footer from "@/components/Footer";
-import { IconUser, IconPhone, IconLocation, IconStar } from "@/components/Icons";
+import { IconUser, IconPhone, IconLocation } from "@/components/Icons";
+import SaveButton from "@/components/SaveButton";
 
 const districts = [
   { slug: "quan-1", label: "Quận 1", short: "Q.1" },
@@ -278,7 +279,7 @@ export default function OtoPage() {
             </div>
 
             {/* Region filter */}
-            <div className="w-full mt-[10px] flex flex-wrap items-center gap-1 px-3 md:px-0 md:float-left">
+            <div className="w-full mt-[10px] flex items-center gap-1 px-3 md:px-0 md:float-left flex-nowrap overflow-x-auto">
               <button type="button" className="inline-block font-bold bg-[rgb(16,92,182)] text-white py-1 px-3 rounded text-xs">Toàn quốc</button>
               <button type="button" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">Hà Nội</button>
               <button type="button" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">TP HCM</button>
@@ -363,9 +364,7 @@ export default function OtoPage() {
                             <IconLocation className="text-green-600 w-3 h-3" />
                             <span>{property.location}</span>
                           </div>
-                          <button className="text-[15px] text-red-500 font-bold flex items-center gap-1">
-                            <IconStar className="text-red-500 w-4 h-4" /> Lưu tin
-                          </button>
+                          <SaveButton />
                         </div>
                       </div>
                     </div>

@@ -4,7 +4,8 @@ import Header from "@/components/Header";
 import MobileHeader from "@/components/MobileHeader";
 import Footer from "@/components/Footer";
 import BrandSidebar from "@/components/BrandSidebar";
-import { IconUser, IconPhone, IconLocation, IconStar } from "@/components/Icons";
+import { IconUser, IconPhone, IconLocation } from "@/components/Icons";
+import SaveButton from "@/components/SaveButton";
 
 const propertyListings = [
   {
@@ -137,7 +138,7 @@ export default function HomePage() {
             </form>
             <div className="float-left"></div>
 
-            <div className="w-full mt-[10px] flex flex-wrap items-center gap-2 px-3 md:px-0 overflow-x-hidden">
+            <div className="w-full mt-[10px] flex items-center gap-1 px-3 md:px-0 overflow-x-hidden flex-nowrap">
               <Link
                 href="/oto"
                 className="inline-block font-bold bg-[rgb(16,92,182)] text-white py-1 px-3 rounded"
@@ -192,74 +193,72 @@ export default function HomePage() {
                       borderBottomColor: "rgb(222, 222, 222)",
                     }}
                   >
-                    <Link href={property.href} className="text-[rgb(3,49,196)] block">
-                      {/* Mobile Layout */}
-                      <div className="md:hidden">
-                        <Link href={property.href} className="block">
-                          {/* Dòng 1: Tên + Giá cùng hàng */}
-                          <div className="flex items-baseline gap-3 mb-2">
-                            <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate flex-1">
-                              {property.name}
-                            </div>
-                            <div className="font-bold text-green-600 text-[18px] whitespace-nowrap">
-                              {property.price}
-                            </div>
+                    {/* Mobile Layout */}
+                    <div className="md:hidden">
+                      <Link href={property.href} className="block">
+                        {/* Dòng 1: Tên + Giá cùng hàng */}
+                        <div className="flex items-baseline gap-3 mb-2">
+                          <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate flex-1">
+                            {property.name}
                           </div>
-
-                          {/* Dòng 2: Ảnh + Specs */}
-                          <div className="flex gap-2 items-start">
-                            <div className="flex-shrink-0 w-[110px]">
-                              <Image
-                                alt={property.imgAlt}
-                                src={property.img}
-                                width={110}
-                                height={85}
-                                unoptimized
-                                className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded"
-                              />
-                            </div>
-                            <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-3 gap-y-0.5 pl-1">
-                              {property.specs.map((spec, i) => (
-                                <div key={i} className="text-[16px] text-[rgb(51,51,51)] flex items-center gap-1">
-                                  <span className="text-gray-500">·</span>
-                                  <span>{spec}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </Link>
-
-                        {/* Dòng 3: Liên hệ + Địa điểm */}
-                        <div className="flex justify-between items-end mt-2">
-                          <div className="text-[13px]">
-                            <div className="flex items-center gap-1.5">
-                              <IconUser />
-                              <span className="font-bold text-[rgb(51,51,51)]">{property.contact}</span>
-                              {property.verified && (
-                                <span className="inline-flex items-center justify-center w-4 h-4 bg-green-500 rounded-full text-white text-[10px]">✓</span>
-                              )}
-                            </div>
-                            <div className="flex items-center gap-1.5 mt-0.5">
-                              <IconPhone />
-                              <a href={`tel:${property.phone}`} className="text-[rgb(3,49,196)] font-bold">{property.phone}</a>
-                            </div>
-                            <button className="mt-1.5 text-[13px] text-[rgb(3,49,196)] border border-[rgb(3,49,196)] rounded px-2 py-0.5 font-bold flex items-center gap-1">
-                              <IconLocation className="text-[rgb(3,49,196)] w-3 h-3" /> Xem địa chỉ
-                            </button>
-                          </div>
-                          <div className="flex flex-col items-end gap-1">
-                            <div className="flex items-center gap-1 text-[13px] font-bold text-green-600">
-                              <IconLocation className="text-green-600 w-3 h-3" />
-                              <span>{property.location}</span>
-                            </div>
-                            <button className="text-[15px] text-red-500 font-bold flex items-center gap-1">
-                              <IconStar className="text-red-500 w-4 h-4" /> Lưu tin
-                            </button>
+                          <div className="font-bold text-green-600 text-[18px] whitespace-nowrap">
+                            {property.price}
                           </div>
                         </div>
-                      </div>
 
-                      {/* Desktop Layout */}
+                        {/* Dòng 2: Ảnh + Specs */}
+                        <div className="flex gap-2 items-start">
+                          <div className="flex-shrink-0 w-[110px]">
+                            <Image
+                              alt={property.imgAlt}
+                              src={property.img}
+                              width={110}
+                              height={85}
+                              unoptimized
+                              className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded"
+                            />
+                          </div>
+                          <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-3 gap-y-0.5 pl-1">
+                            {property.specs.map((spec, i) => (
+                              <div key={i} className="text-[16px] text-[rgb(51,51,51)] flex items-center gap-1">
+                                <span className="text-gray-500">·</span>
+                                <span>{spec}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </Link>
+
+                      {/* Dòng 3: Liên hệ + Địa điểm */}
+                      <div className="flex justify-between items-end mt-2">
+                        <div className="text-[13px]">
+                          <div className="flex items-center gap-1.5">
+                            <IconUser />
+                            <span className="font-bold text-[rgb(51,51,51)]">{property.contact}</span>
+                            {property.verified && (
+                              <span className="inline-flex items-center justify-center w-4 h-4 bg-green-500 rounded-full text-white text-[10px]">✓</span>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-1.5 mt-0.5">
+                            <IconPhone />
+                            <a href={`tel:${property.phone}`} className="text-[rgb(3,49,196)] font-bold">{property.phone}</a>
+                          </div>
+                          <button className="mt-1.5 text-[13px] text-[rgb(3,49,196)] border border-[rgb(3,49,196)] rounded px-2 py-0.5 font-bold flex items-center gap-1">
+                            <IconLocation className="text-[rgb(3,49,196)] w-3 h-3" /> Xem địa chỉ
+                          </button>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                          <div className="flex items-center gap-1 text-[13px] font-bold text-green-600">
+                            <IconLocation className="text-green-600 w-3 h-3" />
+                            <span>{property.location}</span>
+                          </div>
+                          <SaveButton />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Desktop Layout */}
+                    <Link href={property.href} className="text-[rgb(3,49,196)]">
                       <div className="hidden md:block">
                         <div className="float-left text-center w-[90px] h-[30px] text-black">
                           {property.condition}&nbsp;
