@@ -95,59 +95,55 @@ const propertyListings = [
 export default function HomePage() {
   return (
     <div
-      className="text-black text-[16px] leading-[normal]"
+      className="text-black text-[16px] leading-[normal] overflow-x-hidden"
       style={{
         fontFamily: '"Times New Roman"',
         textDecoration: "none",
-        width: "1920px",
-        transform: "scale(1)",
         margin: "auto",
       }}
     >
       <div
-        className="text-[12px]"
+        className="text-[12px] overflow-x-hidden"
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
       >
-        <div className="ml-auto mr-auto relative w-[990px]">
+        <div className="ml-auto mr-auto relative w-full md:max-w-[990px]">
           <Header />
 
-          {/* Left Sidebar */}
-          <div className="float-left w-[190px] relative" style={{ zIndex: 1 }}>
+          {/* Left Sidebar - Hidden on mobile */}
+          <div className="hidden md:block float-left w-[190px] relative" style={{ zIndex: 1 }}>
             <BrandSidebar />
           </div>
 
           {/* Main content */}
-          <div className="float-left w-[490px] min-h-[800px] relative" style={{ zIndex: 1 }}>
+          <div className="w-full md:float-left md:w-[490px] min-h-[800px] relative overflow-x-hidden" style={{ zIndex: 1 }}>
             {/* Search box */}
             <form>
-              <div className="w-[490px]">
-                <div className="border float-left w-full h-[78px] bg-[rgb(223,239,250)] border-[rgb(158,204,225)]">
-                  <div className="float-left w-[380px] h-5 mt-[10px] ml-[10px]">
-                    <h2 className="float-left text-[rgb(3,49,196)] text-[15px] pt-0 pr-[10px] pb-0 pl-0">
+              <div className="w-full">
+                <div className="w-full bg-[rgb(223,239,250)] md:border md:border-[rgb(158,204,225)] p-3">
+                  <div className="mb-3">
+                    <h2 className="inline-block text-[rgb(3,49,196)] text-[15px] mr-4">
                       <Link
                         href="/oto"
-                        className="block float-left font-bold text-[rgb(51,51,51)] pt-0 pr-[10px] pb-0 pl-0"
+                        className="font-bold text-[rgb(51,51,51)]"
                       >
                         Tin bán BĐS
                       </Link>
                     </h2>
-                    <h2 className="float-left text-[rgb(3,49,196)] text-[15px] pt-0 pr-[10px] pb-0 pl-0">
-                      <Link
-                        href="/oto"
-                        className="block float-left pt-0 pr-[10px] pb-0 pl-0"
-                      >
+                    <h2 className="inline-block text-[rgb(3,49,196)] text-[15px]">
+                      <Link href="/oto">
                         Tin cần mua BĐS
                       </Link>
                     </h2>
                   </div>
-                  <div className="float-left relative w-[451px] h-7 ml-[10px]">
+                  <div className="relative">
                     <input
                       type="text"
-                      className="border block float-left overflow-clip w-full bg-[rgb(250,253,254)] border-[rgb(101,175,202)] text-[rgb(51,51,51)] text-[13px] pt-[5px] pr-[5px] pb-1 pl-[5px] rounded-sm"
+                      placeholder="Tìm kiếm..."
+                      className="border w-full bg-[rgb(250,253,254)] border-[rgb(101,175,202)] text-[rgb(51,51,51)] text-[13px] py-2 px-3 pr-24 rounded-sm"
                     />
                     <Link
                       href="/oto"
-                      className="block absolute right-px text-center w-[78px] h-[26px] bg-[rgb(26,145,229)] text-white leading-[26px]"
+                      className="absolute right-1 top-1/2 -translate-y-1/2 text-center px-4 py-1 bg-[rgb(26,145,229)] text-white rounded"
                     >
                       Tìm kiếm
                     </Link>
@@ -157,56 +153,46 @@ export default function HomePage() {
             </form>
             <div className="float-left"></div>
 
-            <div className="float-left w-full mt-[10px]">
+            <div className="w-full mt-[10px] flex flex-wrap items-center gap-2 px-3 md:px-0 overflow-x-hidden">
               <Link
                 href="/oto"
-                className="block float-left font-bold bg-[rgb(16,92,182)] text-white pt-[3px] pr-[10px] pb-[3px] pl-[10px]"
+                className="inline-block font-bold bg-[rgb(16,92,182)] text-white py-1 px-3 rounded"
               >
                 Toàn quốc
               </Link>
               <Link
                 href="/ha-noi/oto"
-                className="block float-left font-bold text-[rgb(53,51,169)] pt-[3px] pr-[10px] pb-[3px] pl-[10px]"
+                className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-3"
               >
                 Hà Nội
               </Link>
               <Link
                 href="/tp-hcm/oto"
-                className="block float-left font-bold text-[rgb(53,51,169)] pt-[3px] pr-[10px] pb-[3px] pl-[10px]"
+                className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-3"
               >
                 TP HCM
               </Link>
-              <span className="block float-right">
-                <Link
-                  href="#"
-                  className="block float-left font-bold text-[rgb(53,51,169)] pt-[3px] pr-[10px] pb-[3px] pl-[10px]"
-                >
-                  Chọn tỉnh thành khác
-                  <Image
-                    src="https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fce87bfd72c6f5d0e5f9d7b36f2b6a6a309240539.jpg?generation=1777600429058159&alt=media"
-                    alt=""
-                    width={10}
-                    height={10}
-                    unoptimized
-                    className="overflow-clip inline"
-                  />
-                </Link>
-              </span>
+              <Link
+                href="#"
+                className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-3 ml-auto"
+              >
+                Chọn tỉnh thành khác ▼
+              </Link>
             </div>
 
             {/* Property listings */}
-            <div className="float-left w-full pt-0 pr-0 pb-5 pl-0">
-              <div className="border w-[488px] border-[rgb(204,204,204)] rounded-tl-[0.1875rem] rounded-tr-[0.1875rem]">
+            <div className="w-full pt-0 pr-0 pb-5 pl-0 overflow-x-hidden">
+              <div className="w-full md:border md:border-[rgb(204,204,204)] md:rounded">
                 <div
-                  className="border-b float-left w-full h-[33px] bg-[rgb(234,234,234)]"
+                  className="border-b w-full bg-[rgb(234,234,234)] p-2 flex justify-between items-center"
                   style={{ borderBottomColor: "rgb(204, 204, 204)" }}
                 >
-                  <h1 className="float-left font-bold uppercase mt-[8px] mb-[8px] text-[rgb(102,102,102)] text-[15px] pt-0 pr-0 pb-0 pl-[10px]">
+                  <h1 className="font-bold uppercase text-[rgb(102,102,102)] text-[15px]">
                     <Link href="/oto" className="text-[rgb(102,102,102)]">
                       Mua bán bất động sản
                     </Link>
                   </h1>
-                  <span className="block float-right m-2">
+                  <span className="text-[12px]">
                     Tổng : 8,456 tin
                   </span>
                 </div>
@@ -214,7 +200,7 @@ export default function HomePage() {
                 {propertyListings.map((property) => (
                   <div
                     key={property.id}
-                    className={`border-b float-left w-full h-[131px] pt-[5px] pr-0 pb-0 pl-0 mb-[5px] ${
+                    className={`border-b w-full p-2 ${
                       property.highlight ? "bg-[rgb(255,254,242)]" : ""
                     }`}
                     style={{
@@ -222,55 +208,103 @@ export default function HomePage() {
                       borderBottomColor: "rgb(222, 222, 222)",
                     }}
                   >
-                    <Link href={property.href} className="text-[rgb(3,49,196)]">
-                      <div className="float-left text-center w-[90px] h-[30px] text-black">
-                        {property.condition}&nbsp;
-                        <b className="font-bold text-center">{property.year}</b>
+                    <Link href={property.href} className="text-[rgb(3,49,196)] block">
+                      {/* Mobile Layout */}
+                      <div className="md:hidden">
+                        <div className="flex gap-3">
+                          {/* Image */}
+                          <div className="flex-shrink-0">
+                            <Image
+                              alt={property.imgAlt}
+                              src={property.img}
+                              width={90}
+                              height={70}
+                              unoptimized
+                              className="border object-cover w-[90px] h-[70px] border-[rgb(222,222,222)] rounded"
+                            />
+                            <div className="text-center text-[rgb(85,85,85)] text-[11px] mt-1">
+                              {property.condition} {property.year}
+                            </div>
+                          </div>
+                          
+                          {/* Content */}
+                          <div className="flex-1 min-w-0">
+                            <div className="font-bold text-[rgb(3,49,196)] mb-1">
+                              {property.name}
+                            </div>
+                            <div className="text-[rgb(51,51,51)] text-[12px] mb-1">
+                              {property.desc}
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <div className="font-bold text-black">
+                                {property.price}
+                              </div>
+                              <div className="text-black text-[12px]">
+                                {property.location}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Contact Info */}
+                        <div className="mt-2 text-[rgb(85,85,85)] text-[11px]">
+                          <div className="font-bold">{property.contact}</div>
+                          <div>{property.address}</div>
+                          <div>ĐT: {property.phone}</div>
+                        </div>
                       </div>
-                      <div className="float-left text-left w-[215px] h-[30px]">
-                        <b className="font-bold text-left">{property.name}</b>
-                      </div>
-                      <div className="float-left text-left w-20 h-[30px] text-black">
-                        <b className="font-bold text-left">{property.price}</b>
-                      </div>
-                      <div className="float-left text-center w-24 h-[30px] text-black">
-                        <b className="font-bold text-center">{property.location}</b>
-                      </div>
-                      <div className="float-left text-center w-[98px] h-[100px] text-black">
-                        <Image
-                          alt={property.imgAlt}
-                          src={property.img}
-                          width={90}
-                          height={70}
-                          unoptimized
-                          className="border object-cover overflow-clip text-center w-[90px] border-[rgb(222,222,222)] max-h-[70px] rounded-[1px] m-[2px]"
-                        />
-                        <br />
-                        <span className="text-center text-[rgb(85,85,85)] text-[11px]">
-                          Mã: {property.id}
-                        </span>
-                      </div>
-                      <div className="float-left text-left w-[198px] h-[90px] text-[rgb(51,51,51)]">
-                        {property.desc}&nbsp;
-                        <p className="text-left mt-[5px] mb-[5px]">
-                          {property.detail}
-                        </p>
+
+                      {/* Desktop Layout */}
+                      <div className="hidden md:block">
+                        <div className="float-left text-center w-[90px] h-[30px] text-black">
+                          {property.condition}&nbsp;
+                          <b className="font-bold text-center">{property.year}</b>
+                        </div>
+                        <div className="float-left text-left w-[215px] h-[30px]">
+                          <b className="font-bold text-left">{property.name}</b>
+                        </div>
+                        <div className="float-left text-left w-20 h-[30px] text-black">
+                          <b className="font-bold text-left">{property.price}</b>
+                        </div>
+                        <div className="float-left text-center w-24 h-[30px] text-black">
+                          <b className="font-bold text-center">{property.location}</b>
+                        </div>
+                        <div className="float-left text-center w-[98px] h-[100px] text-black">
+                          <Image
+                            alt={property.imgAlt}
+                            src={property.img}
+                            width={90}
+                            height={70}
+                            unoptimized
+                            className="border object-cover overflow-clip text-center w-[90px] border-[rgb(222,222,222)] max-h-[70px] rounded-[1px] m-[2px]"
+                          />
+                          <br />
+                          <span className="text-center text-[rgb(85,85,85)] text-[11px]">
+                            Mã: {property.id}
+                          </span>
+                        </div>
+                        <div className="float-left text-left w-[198px] h-[90px] text-[rgb(51,51,51)]">
+                          {property.desc}&nbsp;
+                          <p className="text-left mt-[5px] mb-[5px]">
+                            {property.detail}
+                          </p>
+                        </div>
+                        <div className="float-left text-left w-[182px] h-[90px] text-[rgb(85,85,85)] pt-0 pr-0 pb-0 pl-2">
+                          LH:{" "}
+                          <b className="font-bold text-left">{property.contact}</b>
+                          &nbsp; {property.address} &nbsp; &nbsp; ĐT: {property.phone}
+                        </div>
+                        <div className="clear-both"></div>
                       </div>
                     </Link>
-                    <div className="float-left text-left w-[182px] h-[90px] text-[rgb(85,85,85)] pt-0 pr-0 pb-0 pl-2">
-                      LH:{" "}
-                      <b className="font-bold text-left">{property.contact}</b>
-                      &nbsp; {property.address} &nbsp; &nbsp; ĐT: {property.phone}
-                    </div>
-                    <div className="clear-both"></div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Right sidebar */}
-          <div className="float-left w-[290px] min-h-[800px] relative" style={{ zIndex: 1 }}>
+          {/* Right sidebar - Hidden on mobile */}
+          <div className="hidden md:block float-left w-[290px] min-h-[800px] relative" style={{ zIndex: 1 }}>
             {/* Login box */}
             <div className="border bg-[rgb(255,255,229)] border-[rgb(255,182,75)] mb-[10px]">
               <div className="bg-[rgb(254,241,172)] border-b border-[rgb(255,182,75)] px-[10px] py-[8px]">
