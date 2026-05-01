@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "Chuyên trang mua bán bất động sản uy tín",
 };
 
+export const viewport = {
+  width: "990",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
