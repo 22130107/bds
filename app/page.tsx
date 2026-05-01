@@ -193,10 +193,10 @@ export default function HomePage() {
                       borderBottomColor: "rgb(222, 222, 222)",
                     }}
                   >
-                    {/* Mobile Layout */}
-                    <div className="md:hidden">
+                    {/* Layout cho tất cả màn hình */}
+                    <div>
                       <Link href={property.href} className="block">
-                        {/* Dòng 1: Tên + Giá cùng hàng */}
+                        {/* Dòng 1: Tên + Giá */}
                         <div className="flex items-baseline gap-3 mb-2">
                           <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate flex-1">
                             {property.name}
@@ -205,30 +205,21 @@ export default function HomePage() {
                             {property.price}
                           </div>
                         </div>
-
                         {/* Dòng 2: Ảnh + Specs */}
                         <div className="flex gap-2 items-start">
                           <div className="flex-shrink-0 w-[110px]">
-                            <Image
-                              alt={property.imgAlt}
-                              src={property.img}
-                              width={110}
-                              height={85}
-                              unoptimized
-                              className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded"
-                            />
+                            <Image alt={property.imgAlt} src={property.img} width={110} height={85} unoptimized
+                              className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded" />
                           </div>
                           <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-3 gap-y-0.5 pl-1">
                             {property.specs.map((spec, i) => (
-                              <div key={i} className="text-[16px] text-[rgb(51,51,51)] flex items-center gap-1">
-                                <span className="text-gray-500">·</span>
-                                <span>{spec}</span>
+                              <div key={i} className="text-[15px] text-[rgb(51,51,51)] flex items-center gap-1">
+                                <span className="text-gray-500">·</span><span>{spec}</span>
                               </div>
                             ))}
                           </div>
                         </div>
                       </Link>
-
                       {/* Dòng 3: Liên hệ + Địa điểm */}
                       <div className="flex justify-between items-end mt-2">
                         <div className="text-[13px]">
@@ -256,48 +247,6 @@ export default function HomePage() {
                         </div>
                       </div>
                     </div>
-
-                    {/* Desktop Layout */}
-                    <Link href={property.href} className="text-[rgb(3,49,196)]">
-                      <div className="hidden md:block">
-                        <div className="float-left text-center w-[90px] h-[30px] text-black">
-                          {property.condition}&nbsp;
-                          <b className="font-bold text-center">{property.year}</b>
-                        </div>
-                        <div className="float-left text-left w-[215px] h-[30px]">
-                          <b className="font-bold text-left">{property.name}</b>
-                        </div>
-                        <div className="float-left text-left w-20 h-[30px] text-black">
-                          <b className="font-bold text-left">{property.price}</b>
-                        </div>
-                        <div className="float-left text-center w-24 h-[30px] text-black">
-                          <b className="font-bold text-center">{property.location}</b>
-                        </div>
-                        <div className="float-left text-center w-[98px] h-[100px] text-black">
-                          <Image
-                            alt={property.imgAlt}
-                            src={property.img}
-                            width={90}
-                            height={70}
-                            unoptimized
-                            className="border object-cover overflow-clip text-center w-[90px] border-[rgb(222,222,222)] max-h-[70px] rounded-[1px] m-[2px]"
-                          />
-                          <br />
-                          <span className="text-center text-[rgb(85,85,85)] text-[11px]">
-                            Mã: {property.id}
-                          </span>
-                        </div>
-                        <div className="float-left text-left w-[198px] h-[90px] text-[rgb(51,51,51)]">
-                          {property.specs.map((s, i) => <div key={i}>· {s}</div>)}
-                        </div>
-                        <div className="float-left text-left w-[182px] h-[90px] text-[rgb(85,85,85)] pt-0 pr-0 pb-0 pl-2">
-                          LH:{" "}
-                          <b className="font-bold text-left">{property.contact}</b>
-                          &nbsp; ĐT: {property.phone}
-                        </div>
-                        <div className="clear-both"></div>
-                      </div>
-                    </Link>
                   </div>
                 ))}
               </div>
