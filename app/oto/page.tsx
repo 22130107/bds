@@ -298,23 +298,24 @@ export default function OtoPage() {
                     <div className="md:hidden">
                       <Link href={property.href} className="text-[rgb(3,49,196)] block">
                         <div className="flex gap-3">
-                          <div className="flex-shrink-0 w-[100px]">
-                            <Image alt={property.imgAlt} src={property.img} width={100} height={80} unoptimized className="border object-cover w-[100px] h-[80px] border-[rgb(222,222,222)] rounded" />
-                            <div className="text-center text-[rgb(85,85,85)] text-[12px] mt-1">{property.condition} {property.year}</div>
+                          <div className="flex-shrink-0 w-[110px]">
+                            <Image alt={property.imgAlt} src={property.img} width={110} height={85} unoptimized className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded" />
+                            <div className="text-center text-[rgb(85,85,85)] text-[13px] mt-1">{property.condition} {property.year}</div>
                           </div>
                           <div className="flex-1 min-w-0">
-                            <div className="font-bold text-[rgb(3,49,196)] mb-1 text-[14px] leading-snug">{property.name}</div>
-                            <div className="text-[rgb(51,51,51)] text-[13px] mb-2 leading-snug">{property.desc}</div>
-                            <div className="flex justify-between items-center">
-                              <div className="font-bold text-black text-[18px]">{property.price}</div>
-                              <div className="text-black text-[14px] font-bold">{property.location}</div>
+                            <div className="font-bold text-[rgb(3,49,196)] mb-1 text-[16px] leading-snug">{property.name}</div>
+                            <div className="flex justify-between items-start gap-2">
+                              <div className="text-[rgb(51,51,51)] text-[14px] leading-snug flex-1">
+                                <span className="mr-1">•</span>{property.desc.replace(/^\*/, "")}
+                              </div>
+                              <div className="font-bold text-red-600 text-[22px] whitespace-nowrap leading-tight">{property.price}</div>
                             </div>
                           </div>
                         </div>
-                        <div className="mt-2 text-[rgb(85,85,85)] text-[13px]">
-                          <div className="font-bold">{property.contact}</div>
-                          <div>{property.address}</div>
-                          <div>ĐT: {property.phone}</div>
+                        <div className="mt-2 text-[rgb(51,51,51)] text-[14px]">
+                          <div className="font-bold text-[15px]">{property.contact} <span className="font-normal text-gray-600">— {property.location}</span></div>
+                          <div>• {property.address}</div>
+                          <div>• ĐT: {property.phone}</div>
                         </div>
                       </Link>
                     </div>

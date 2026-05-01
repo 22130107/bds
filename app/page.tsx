@@ -119,181 +119,16 @@ export default function HomePage() {
             {/* Search box */}
             <form>
               <div className="w-full">
-                {/* Mobile Search - Detailed Filters */}
-                <div className="md:hidden w-full bg-[rgb(223,239,250)] p-3">
-                  {/* Tabs */}
-                  <div className="mb-3 border-b border-gray-300">
-                    <button type="button" className="inline-block font-bold text-[rgb(51,51,51)] pb-2 px-3 border-b-2 border-black text-sm">
-                      Tin bán BĐS
-                    </button>
-                    <button type="button" className="inline-block text-[rgb(3,49,196)] pb-2 px-3 text-sm">
-                      Tin mua BĐS
-                    </button>
-                  </div>
-
-                  {/* Search Input */}
-                  <div className="relative mb-3">
-                    <input
-                      type="text"
-                      placeholder="Tìm kiếm..."
-                      className="border w-full bg-white border-[rgb(101,175,202)] text-[rgb(51,51,51)] text-[13px] py-2 px-3 pr-24 rounded-sm"
-                    />
-                    <button
-                      type="submit"
-                      className="absolute right-1 top-1/2 -translate-y-1/2 text-center px-4 py-1 bg-[rgb(26,145,229)] text-white rounded text-sm"
-                    >
-                      Tìm kiếm
-                    </button>
-                  </div>
-
-                  {/* Loại BĐS */}
-                  <div className="mb-3">
-                    <label className="block text-gray-700 font-bold mb-2 text-sm">Loại hình:</label>
-                    <div className="grid grid-cols-3 gap-2">
-                      <button type="button" className="bg-[rgb(16,92,182)] text-white font-bold py-2 px-3 text-xs rounded">
-                        Tất cả
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] font-bold py-2 px-3 text-xs rounded border border-gray-300">
-                        Phố cư
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] font-bold py-2 px-3 text-xs rounded border border-gray-300">
-                        Chung cư
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Giấy tờ */}
-                  <div className="mb-3">
-                    <label className="block text-gray-700 font-bold mb-2 text-sm">Giấy tờ:</label>
-                    <div className="grid grid-cols-3 gap-2">
-                      <button type="button" className="bg-[rgb(16,92,182)] text-white font-bold py-2 px-3 text-xs rounded">
-                        Tất cả
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] font-bold py-2 px-3 text-xs rounded border border-gray-300">
-                        Có sổ
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] font-bold py-2 px-3 text-xs rounded border border-gray-300">
-                        Chưa có sổ
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Vị trí */}
-                  <div className="mb-3">
-                    <label className="block text-gray-700 font-bold mb-2 text-sm">Vị trí:</label>
-                    <div className="flex flex-wrap gap-2">
-                      <button type="button" className="bg-[rgb(16,92,182)] text-white font-bold py-1.5 px-3 text-xs rounded whitespace-nowrap">
-                        Tất cả
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.1
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.2
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.3
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.4
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.5
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.6
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.7
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.8
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.9
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.10
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.11
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        Q.12
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        B.Thạnh
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        G.Vấp
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        P.Nhuận
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        T.Bình
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        T.Phú
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        T.Đức
-                      </button>
-                      <button type="button" className="bg-white text-[rgb(3,49,196)] py-1.5 px-3 text-xs rounded border border-gray-300 whitespace-nowrap">
-                        B.Tân
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Giới hạn giá */}
-                  <div className="mb-3">
-                    <label className="block text-gray-700 font-bold mb-2 text-sm">Giới hạn giá:</label>
-                    <div className="mb-2">
-                      <input type="checkbox" id="priceLimit" className="mr-2" />
-                      <label htmlFor="priceLimit" className="text-xs">Giới hạn giá</label>
-                    </div>
-                    <input 
-                      type="range" 
-                      min="0" 
-                      max="20000000000" 
-                      className="w-full"
-                    />
-                    <div className="flex justify-between text-[10px] text-gray-600 mt-1">
-                      <span>0</span>
-                      <span>200Tr</span>
-                      <span>400Tr</span>
-                      <span>600Tr</span>
-                      <span>800Tr</span>
-                      <span>1Tỉ</span>
-                      <span>1,2Tỉ</span>
-                      <span>1,4Tỉ</span>
-                      <span>1,6Tỉ</span>
-                    </div>
-                  </div>
-
-                  {/* Expand button */}
-                  <div className="text-center">
-                    <button type="button" className="text-[rgb(3,49,196)] font-bold text-sm">
-                      Mở rộng điều kiện tìm kiếm [ + ]
-                    </button>
-                  </div>
-                </div>
-
-                {/* Desktop Search - Simple */}
-                <div className="hidden md:block border w-full bg-[rgb(223,239,250)] border-[rgb(158,204,225)] p-3">
+                {/* Search - cả mobile lẫn desktop */}
+                <div className="w-full border bg-[rgb(223,239,250)] border-[rgb(158,204,225)] p-3">
                   <div className="mb-3">
                     <h2 className="inline-block text-[rgb(3,49,196)] text-[15px] mr-4">
-                      <Link
-                        href="/oto"
-                        className="font-bold text-[rgb(51,51,51)]"
-                      >
+                      <Link href="/oto" className="font-bold text-[rgb(51,51,51)]">
                         Tin bán BĐS
                       </Link>
                     </h2>
                     <h2 className="inline-block text-[rgb(3,49,196)] text-[15px]">
-                      <Link href="/oto">
-                        Tin cần mua BĐS
-                      </Link>
+                      <Link href="/oto">Tin cần mua BĐS</Link>
                     </h2>
                   </div>
                   <div className="relative">
@@ -374,44 +209,41 @@ export default function HomePage() {
                       <div className="md:hidden">
                         <div className="flex gap-3">
                           {/* Image */}
-                          <div className="flex-shrink-0 w-[100px]">
+                          <div className="flex-shrink-0 w-[110px]">
                             <Image
                               alt={property.imgAlt}
                               src={property.img}
-                              width={100}
-                              height={80}
+                              width={110}
+                              height={85}
                               unoptimized
-                              className="border object-cover w-[100px] h-[80px] border-[rgb(222,222,222)] rounded"
+                              className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded"
                             />
-                            <div className="text-center text-[rgb(85,85,85)] text-[12px] mt-1">
+                            <div className="text-center text-[rgb(85,85,85)] text-[13px] mt-1">
                               {property.condition} {property.year}
                             </div>
                           </div>
                           
                           {/* Content */}
                           <div className="flex-1 min-w-0">
-                            <div className="font-bold text-[rgb(3,49,196)] mb-1 text-[14px] leading-snug">
+                            <div className="font-bold text-[rgb(3,49,196)] mb-1 text-[16px] leading-snug">
                               {property.name}
                             </div>
-                            <div className="text-[rgb(51,51,51)] text-[13px] mb-2 leading-snug">
-                              {property.desc}
-                            </div>
-                            <div className="flex justify-between items-center">
-                              <div className="font-bold text-black text-[18px]">
-                                {property.price}
+                            <div className="flex justify-between items-start gap-2">
+                              <div className="text-[rgb(51,51,51)] text-[14px] leading-snug flex-1">
+                                <span className="mr-1">•</span>{property.desc.replace(/^\*/, "")}
                               </div>
-                              <div className="text-black text-[14px] font-bold">
-                                {property.location}
+                              <div className="font-bold text-red-600 text-[22px] whitespace-nowrap leading-tight">
+                                {property.price}
                               </div>
                             </div>
                           </div>
                         </div>
                         
                         {/* Contact Info */}
-                        <div className="mt-2 text-[rgb(85,85,85)] text-[13px]">
-                          <div className="font-bold">{property.contact}</div>
-                          <div>{property.address}</div>
-                          <div>ĐT: {property.phone}</div>
+                        <div className="mt-2 text-[rgb(51,51,51)] text-[14px]">
+                          <div className="font-bold text-[15px]">{property.contact} <span className="font-normal text-gray-600">— {property.location}</span></div>
+                          <div>• {property.address}</div>
+                          <div>• ĐT: {property.phone}</div>
                         </div>
                       </div>
 
