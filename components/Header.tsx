@@ -24,8 +24,20 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex-1 text-center">
-            <div className="text-[20px] font-bold text-[rgb(0,92,198)]">
-              bonbanh.com
+            <div className="inline-block">
+              <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-sm bg-gray-800 flex items-center justify-center text-white font-bold text-xs">
+                    🏠
+                  </div>
+                </div>
+                <div className="text-[18px] font-bold text-[rgb(0,92,198)]">
+                  BDS<span className="text-red-600">.com</span>
+                </div>
+              </div>
+              <div className="text-[10px] text-gray-500 italic text-center">
+                Mua bán nhà đất uy tín
+              </div>
             </div>
           </Link>
 
