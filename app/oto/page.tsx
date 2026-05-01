@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import Header from "@/components/Header";
+import MobileHeader from "@/components/MobileHeader";
 import Footer from "@/components/Footer";
 import { IconUser, IconPhone, IconLocation, IconStar } from "@/components/Icons";
 
@@ -121,9 +122,17 @@ export default function OtoPage() {
       className="text-black text-[16px] leading-[normal]"
       style={{ fontFamily: '"Times New Roman"', textDecoration: "none", margin: "auto" }}
     >
+      {/* Mobile header - ngoài container float */}
+      <div className="md:hidden">
+        <MobileHeader />
+      </div>
+
       <div className="text-[12px]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
         <div className="ml-auto mr-auto relative w-full md:max-w-[990px]">
-          <Header />
+          {/* Desktop header only */}
+          <div className="hidden md:block">
+            <Header />
+          </div>
 
           {/* Breadcrumb */}
           <div className="w-full text-[14px] py-2 px-3 md:px-0 md:float-left md:w-[988px]">

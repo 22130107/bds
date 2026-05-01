@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
+import MobileHeader from "@/components/MobileHeader";
 import Footer from "@/components/Footer";
 import BrandSidebar from "@/components/BrandSidebar";
 import { IconUser, IconPhone, IconLocation, IconStar } from "@/components/Icons";
@@ -92,18 +93,19 @@ export default function HomePage() {
   return (
     <div
       className="text-black text-[16px] leading-[normal]"
-      style={{
-        fontFamily: '"Times New Roman"',
-        textDecoration: "none",
-        margin: "auto",
-      }}
+      style={{ fontFamily: '"Times New Roman"', textDecoration: "none", margin: "auto" }}
     >
-      <div
-        className="text-[12px]"
-        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-      >
-        <div className="ml-auto mr-auto w-full md:max-w-[990px]" style={{ position: 'relative', zIndex: 0 }}>
-          <Header />
+      {/* Mobile header - ngoài container float */}
+      <div className="md:hidden">
+        <MobileHeader />
+      </div>
+
+      <div className="text-[12px]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+        <div className="ml-auto mr-auto w-full md:max-w-[990px]" style={{ position: 'relative' }}>
+          {/* Desktop header only */}
+          <div className="hidden md:block">
+            <Header />
+          </div>
 
           {/* Left Sidebar - Hidden on mobile */}
           <div className="hidden md:block float-left w-[190px] relative" style={{ zIndex: 1 }}>
