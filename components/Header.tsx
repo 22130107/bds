@@ -6,18 +6,19 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="w-full mb-[5px] relative" style={{ zIndex: 10 }}>
+    <div className="w-full mb-[5px] relative" style={{ zIndex: 100 }}>
       {/* Mobile Header */}
-      <div className="md:hidden bg-white border-b border-gray-200">
+      <div className="md:hidden bg-white border-b border-gray-200 relative" style={{ zIndex: 100 }}>
         {/* Mobile Top Bar */}
         <div className="flex items-center justify-between px-4 py-3">
           {/* Hamburger Menu */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-gray-700 focus:outline-none"
+            className="text-gray-700 focus:outline-none p-2 -ml-2"
             aria-label="Menu"
+            type="button"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -47,7 +48,7 @@ export default function Header() {
 
         {/* Mobile Menu Dropdown */}
         {menuOpen && (
-          <div className="bg-white border-t border-gray-200">
+          <div className="bg-white border-t border-gray-200 absolute w-full shadow-lg" style={{ zIndex: 200 }}>
             <Link
               href="/"
               className="block px-4 py-3 text-[rgb(3,49,196)] font-bold border-b border-gray-100"

@@ -64,7 +64,7 @@ export default function PropertyDetailPage() {
               </h2>
               <div className="mb-[10px]">
                 <Image
-                  src="https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fe50b486e8dcce321010e0a6d5598c576ca7bb514.jpg?generation=1777600429038521&alt=media"
+                  src="/1b91c77a98d98476cf31537a7a7596d0-2982041111869541936.jpg"
                   alt="Căn hộ Vinhomes Central Park"
                   width={620}
                   height={400}
@@ -73,11 +73,16 @@ export default function PropertyDetailPage() {
                 />
               </div>
               <div className="grid grid-cols-4 gap-2">
-                {[1, 2, 3, 4].map((i) => (
+                {[
+                  "/00924551c4c88fee0b345bcfd88e4906-2981955498456485763.jpg",
+                  "/23eb243587b6abe39d2b8f2c1ef189a2-2981955502767791339.jpg",
+                  "/3bdaca0fae6082948eb53eb34cec8704-2981955498694556693.jpg",
+                  "/bff1f11c43d71de2adf3cd9463e389c9-2981955504479132907.jpg",
+                ].map((src, i) => (
                   <Image
                     key={i}
-                    src="https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fe428d8d50ac7214cb347b7ac6c604f281e9dfda2.jpg?generation=1777600429044934&alt=media"
-                    alt={`Hình ${i}`}
+                    src={src}
+                    alt={`Hình ${i + 1}`}
                     width={140}
                     height={100}
                     unoptimized
@@ -208,7 +213,7 @@ export default function PropertyDetailPage() {
               <div className="p-[10px]">
                 <div className="w-full h-[250px] bg-[rgb(229,227,223)] relative mb-[10px]">
                   <Image
-                    src="https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fe50b486e8dcce321010e0a6d5598c576ca7bb514.jpg?generation=1777600429038521&alt=media"
+                    src="/3bdaca0fae6082948eb53eb34cec8704-2981955498694556693.jpg"
                     alt="Map"
                     fill
                     unoptimized
@@ -237,12 +242,16 @@ export default function PropertyDetailPage() {
                 </h3>
               </div>
               <div className="p-[10px]">
-                {[1, 2, 3].map((i) => (
+                {[
+                  "/00924551c4c88fee0b345bcfd88e4906-2981955498456485763.jpg",
+                  "/23eb243587b6abe39d2b8f2c1ef189a2-2981955502767791339.jpg",
+                  "/bff1f11c43d71de2adf3cd9463e389c9-2981955504479132907.jpg",
+                ].map((src, i) => (
                   <div key={i} className="border-b pb-[10px] mb-[10px]" style={{ borderBottomColor: "rgb(238, 238, 238)" }}>
-                    <Link href={`/bat-dong-san/${i}`} className="text-[rgb(3,49,196)]">
+                    <Link href={`/bat-dong-san/${i + 1}`} className="text-[rgb(3,49,196)]">
                       <div className="flex gap-[10px]">
                         <Image
-                          src="https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fe428d8d50ac7214cb347b7ac6c604f281e9dfda2.jpg?generation=1777600429044934&alt=media"
+                          src={src}
                           alt="BĐS"
                           width={80}
                           height={60}
