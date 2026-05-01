@@ -306,11 +306,11 @@ export default function OtoPage() {
                     <div className="md:hidden">
                       <Link href={property.href} className="block">
                         {/* Dòng 1: Tên + Giá cùng hàng */}
-                        <div className="flex justify-between items-baseline gap-2 mb-2">
-                          <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate">
+                        <div className="flex items-baseline gap-3 mb-2">
+                          <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate flex-1">
                             {property.name}
                           </div>
-                          <div className="font-bold text-green-600 text-[18px] whitespace-nowrap flex-shrink-0">
+                          <div className="font-bold text-green-600 text-[18px] whitespace-nowrap">
                             {property.price}
                           </div>
                         </div>
@@ -320,7 +320,7 @@ export default function OtoPage() {
                           <div className="flex-shrink-0 w-[120px]">
                             <Image alt={property.imgAlt} src={property.img} width={120} height={90} unoptimized className="border object-cover w-[120px] h-[90px] border-[rgb(222,222,222)] rounded" />
                           </div>
-                          <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-3 gap-y-0.5">
+                          <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-1 gap-y-0.5">
                             {property.specs.map((spec, i) => (
                               <div key={i} className="text-[15px] text-[rgb(51,51,51)] flex items-center gap-1">
                                 <span className="text-gray-500">·</span>

@@ -205,11 +205,11 @@ export default function HomePage() {
                       <div className="md:hidden">
                         <Link href={property.href} className="block">
                           {/* Dòng 1: Tên + Giá cùng hàng */}
-                          <div className="flex justify-between items-baseline gap-2 mb-2">
-                            <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate">
+                          <div className="flex items-baseline gap-3 mb-2">
+                            <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate flex-1">
                               {property.name}
                             </div>
-                            <div className="font-bold text-green-600 text-[18px] whitespace-nowrap flex-shrink-0">
+                            <div className="font-bold text-green-600 text-[18px] whitespace-nowrap">
                               {property.price}
                             </div>
                           </div>
@@ -226,7 +226,7 @@ export default function HomePage() {
                                 className="border object-cover w-[120px] h-[90px] border-[rgb(222,222,222)] rounded"
                               />
                             </div>
-                            <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-3 gap-y-0.5">
+                            <div className="flex-1 grid grid-cols-2 auto-rows-min gap-x-1 gap-y-0.5">
                               {property.specs.map((spec, i) => (
                                 <div key={i} className="text-[15px] text-[rgb(51,51,51)] flex items-center gap-1">
                                   <span className="text-gray-500">·</span>
@@ -297,15 +297,12 @@ export default function HomePage() {
                           </span>
                         </div>
                         <div className="float-left text-left w-[198px] h-[90px] text-[rgb(51,51,51)]">
-                          {property.desc}&nbsp;
-                          <p className="text-left mt-[5px] mb-[5px]">
-                            {property.detail}
-                          </p>
+                          {property.specs.map((s, i) => <div key={i}>· {s}</div>)}
                         </div>
                         <div className="float-left text-left w-[182px] h-[90px] text-[rgb(85,85,85)] pt-0 pr-0 pb-0 pl-2">
                           LH:{" "}
                           <b className="font-bold text-left">{property.contact}</b>
-                          &nbsp; {property.address} &nbsp; &nbsp; ĐT: {property.phone}
+                          &nbsp; ĐT: {property.phone}
                         </div>
                         <div className="clear-both"></div>
                       </div>
