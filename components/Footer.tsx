@@ -48,25 +48,24 @@ export default function Footer() {
         <div className="mt-[20px] text-[rgb(85,85,85)] leading-[18px] text-[11px] md:text-[12px]">
           <div className="text-center text-black mb-3">
             <strong className="font-normal">
-              Bonbanh.com - Chuyên trang mua bán ô tô uy tín nhất Việt Nam từ
-              năm 2006.
+              BDS.com - Chuyên trang mua bán bất động sản uy tín nhất Việt Nam.
             </strong>
             <br className="md:hidden" />
             <span className="hidden md:inline">&nbsp;</span>
-            Điện thoại: 024-7109 7999 . Email: contact@bonbanh.com.
+            Điện thoại: 024-7109 7999 . Email: contact@bds.com.
             <br />
             <span className="inline-block px-2 py-1">
               Hotline: 094 2727 225
             </span>
             <br />
             <span className="text-[rgb(255,0,0)] inline-block px-2 py-1">
-              Bonbanh không bán xe trực tiếp, quý khách mua xe vui lòng liên hệ
+              BDS.com không bán bất động sản trực tiếp, quý khách vui lòng liên hệ
               trực tiếp người đăng tin.
             </span>
             <br />
             Copyright © 2006-2026{" "}
             <Link href="/" className="text-[rgb(3,49,196)]">
-              Bonbanh.com
+              BDS.com
             </Link>{" "}
             - <b className="font-normal">Công ty cổ phần Kypernet Việt Nam.</b>{" "}
             Mã số doanh nghiệp: 0101833960
