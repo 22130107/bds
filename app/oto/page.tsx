@@ -225,43 +225,55 @@ export default function OtoPage() {
             <div className="hidden md:block border w-[728px] bg-[rgb(239,244,253)] border-[rgb(160,179,217)]">
               <div className="float-left w-[99%] pt-[10px] pr-0 pb-[5px] pl-0">
                 <label className="block float-left font-bold w-20 ml-[10px] mr-[10px] text-[rgb(68,68,68)]">Loại hình:</label>
-                <Link href="#" className="block float-left relative bg-[rgb(16,92,182)] text-white text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-white before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">Tất cả</Link>
-                <Link href="#" className="block float-left relative text-[rgb(3,49,196)] text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-[rgb(16,92,182)] before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">Thổ cư</Link>
-                <Link href="#" className="block float-left relative ml-[22px] text-[rgb(3,49,196)] text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-[rgb(16,92,182)] before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">Chung cư</Link>
+                {["all", "tho-cu", "chung-cu"].map((val) => (
+                  <button key={val} type="button" onClick={() => setLoaiHinh(val)}
+                    className={`block float-left relative text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-4 mr-2 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:content-[''] before:translate-y-[-50%] before:rounded-[100%] ${loaiHinh === val ? "bg-[rgb(16,92,182)] text-white before:bg-white" : "text-[rgb(3,49,196)] before:bg-[rgb(16,92,182)]"}`}>
+                    {val === "all" ? "Tất cả" : val === "tho-cu" ? "Thổ cư" : "Chung cư"}
+                  </button>
+                ))}
               </div>
               <div className="float-left w-[99%] pt-[10px] pr-0 pb-[5px] pl-0">
                 <label className="block float-left font-bold w-20 ml-[10px] mr-[10px] text-[rgb(68,68,68)]">Giấy tờ:</label>
-                <Link href="#" className="block float-left relative bg-[rgb(16,92,182)] text-white text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-white before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">Tất cả</Link>
-                <Link href="#" className="block float-left relative text-[rgb(3,49,196)] text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-[rgb(16,92,182)] before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">Có sổ</Link>
-                <Link href="#" className="block float-left relative ml-[22px] text-[rgb(3,49,196)] text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-[rgb(16,92,182)] before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">Chưa có sổ</Link>
+                {["all", "co-so", "chua-co-so"].map((val) => (
+                  <button key={val} type="button" onClick={() => setGiayTo(val)}
+                    className={`block float-left relative text-[13px] leading-[19px] pt-0 pr-2 pb-0 pl-4 mr-2 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:content-[''] before:translate-y-[-50%] before:rounded-[100%] ${giayTo === val ? "bg-[rgb(16,92,182)] text-white before:bg-white" : "text-[rgb(3,49,196)] before:bg-[rgb(16,92,182)]"}`}>
+                    {val === "all" ? "Tất cả" : val === "co-so" ? "Có sổ" : "Chưa có sổ"}
+                  </button>
+                ))}
               </div>
               <div className="float-left w-[99%] pt-[10px] pr-0 pb-[5px] pl-0">
                 <label className="block float-left font-bold w-20 ml-[10px] mr-[10px] text-[rgb(68,68,68)]">Vị trí:</label>
                 <div className="float-left w-[610px] leading-[24px]">
                   <ul>
                     <li className="float-left list-none -ml-px">
-                      <Link href="#" className="block relative bg-[rgb(16,92,182)] text-white text-[13px] pt-0 pr-[9px] pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-white before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">Tất cả</Link>
+                      <button type="button" onClick={() => setViTri("all")}
+                        className={`block relative text-[13px] pt-0 pr-[9px] pb-0 pl-4 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:content-[''] before:translate-y-[-50%] before:rounded-[100%] ${viTri === "all" ? "bg-[rgb(16,92,182)] text-white before:bg-white" : "text-[rgb(3,49,196)] before:bg-[rgb(16,92,182)]"}`}>
+                        Tất cả
+                      </button>
                     </li>
                     {districts.map((d) => (
                       <li key={d.slug} className="float-left list-none -ml-px">
-                        <Link href={`/oto/${d.slug}`} className="block relative text-[rgb(3,49,196)] text-[13px] pt-0 pr-[9px] pb-0 pl-0 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:bg-[rgb(16,92,182)] before:content-[''] before:translate-y-[-50%] before:rounded-[100%]">{d.label}</Link>
+                        <button type="button" onClick={() => setViTri(d.slug)}
+                          className={`block relative text-[13px] pt-0 pr-[9px] pb-0 pl-4 before:absolute before:w-1 before:h-1 before:left-1 before:top-[50%] before:content-[''] before:translate-y-[-50%] before:rounded-[100%] ${viTri === d.slug ? "bg-[rgb(16,92,182)] text-white before:bg-white" : "text-[rgb(3,49,196)] before:bg-[rgb(16,92,182)]"}`}>
+                          {d.label}
+                        </button>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
               <div className="text-right pt-0 pr-[10px] pb-[5px] pl-0 clear-both">
-                <Link href="#" className="text-right text-[rgb(0,0,255)] text-[13px]">Mở rộng điều kiện tìm kiếm [ <b className="font-bold">+</b> ]</Link>
+                <button type="button" className="text-right text-[rgb(0,0,255)] text-[13px]">Mở rộng điều kiện tìm kiếm [ <b className="font-bold">+</b> ]</button>
               </div>
             </div>
 
             {/* Region filter */}
             <div className="w-full mt-[10px] flex flex-wrap items-center gap-1 px-3 md:px-0 md:float-left">
-              <Link href="/oto" className="inline-block font-bold bg-[rgb(16,92,182)] text-white py-1 px-3 rounded text-xs">Toàn quốc</Link>
-              <Link href="/ha-noi/oto" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">Hà Nội</Link>
-              <Link href="/tp-hcm/oto" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">TP HCM</Link>
-              <Link href="/da-nang/oto" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">Đà Nẵng</Link>
-              <Link href="#" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs ml-auto">Chọn tỉnh thành khác ▼</Link>
+              <button type="button" className="inline-block font-bold bg-[rgb(16,92,182)] text-white py-1 px-3 rounded text-xs">Toàn quốc</button>
+              <button type="button" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">Hà Nội</button>
+              <button type="button" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">TP HCM</button>
+              <button type="button" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs">Đà Nẵng</button>
+              <button type="button" className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-2 text-xs ml-auto">Chọn tỉnh thành khác ▼</button>
             </div>
 
             {/* Listings */}
