@@ -38,11 +38,10 @@ const carListings = [
     location: "Quận 1",
     img: "/00924551c4c88fee0b345bcfd88e4906-2981955498456485763.jpg",
     imgAlt: "Nhà phố Nguyễn Huệ Quận 1",
-    desc: "*Nhà phố mặt tiền, 4 tầng, diện tích 80m², có sổ hồng",
-    detail: "Nhà phố mặt tiền đường Nguyễn Huệ, vị trí đắc địa, gần trung tâm...",
+    specs: ["Thổ cư ✓", "Sổ hồng", "4 tầng", "80m²"],
     contact: "Bất Động Sản Sài Gòn",
-    address: "123 Nguyễn Huệ, P. Bến Nghé, Q.1",
     phone: "0966 876 509",
+    verified: true,
     highlight: false,
   },
   {
@@ -55,11 +54,10 @@ const carListings = [
     location: "Bình Thạnh",
     img: "/1b91c77a98d98476cf31537a7a7596d0-2982041111869541936.jpg",
     imgAlt: "Căn hộ Vinhomes Central Park",
-    desc: "*Căn hộ 3PN, 120m², view sông, full nội thất, có sổ hồng",
-    detail: "Căn hộ cao cấp tại Vinhomes Central Park, view sông Sài Gòn tuyệt đẹp...",
+    specs: ["Chung cư ✓", "Sổ hồng", "120m²", "3 phòng ngủ"],
     contact: "Vinhomes Real Estate",
-    address: "208 Nguyễn Hữu Cảnh, P.22, Bình Thạnh",
     phone: "0941 885 555",
+    verified: true,
     highlight: true,
   },
   {
@@ -72,11 +70,10 @@ const carListings = [
     location: "Thủ Đức",
     img: "/23eb243587b6abe39d2b8f2c1ef189a2-2981955502767791339.jpg",
     imgAlt: "Nhà phố Thủ Đức City",
-    desc: "*Nhà phố 1 trệt 2 lầu, 100m², hẻm xe hơi, có sổ hồng",
-    detail: "Nhà phố mới xây, khu dân cư cao cấp, gần trường học, siêu thị...",
+    specs: ["Thổ cư ✓", "Sổ hồng", "100m²", "1 trệt 2 lầu"],
     contact: "Địa Ốc Phương Đông",
-    address: "Đường Võ Văn Ngân, P. Linh Chiểu, Thủ Đức",
     phone: "0966 876 509",
+    verified: false,
     highlight: false,
   },
   {
@@ -89,11 +86,10 @@ const carListings = [
     location: "Quận 2",
     img: "/3bdaca0fae6082948eb53eb34cec8704-2981955498694556693.jpg",
     imgAlt: "Căn hộ Masteri Thảo Điền",
-    desc: "*Căn hộ 2PN, 75m², view hồ bơi, full nội thất, có sổ hồng",
-    detail: "Căn hộ cao cấp Masteri Thảo Điền, tiện ích đầy đủ, an ninh 24/7...",
+    specs: ["Chung cư ✓", "Sổ hồng", "75m²", "2 phòng ngủ"],
     contact: "Masteri Real Estate",
-    address: "159 Xa Lộ Hà Nội, P. Thảo Điền, Q.2",
     phone: "0988 282 646",
+    verified: true,
     highlight: true,
   },
   {
@@ -106,11 +102,10 @@ const carListings = [
     location: "Bình Tân",
     img: "/bff1f11c43d71de2adf3cd9463e389c9-2981955504479132907.jpg",
     imgAlt: "Nhà phố Bình Tân",
-    desc: "*Nhà phố 1 trệt 1 lầu, 60m², hẻm 6m, sổ hồng riêng",
-    detail: "Nhà mới xây 100%, khu dân cư an ninh, gần chợ, trường học...",
+    specs: ["Thổ cư ✓", "Sổ hồng riêng", "60m²", "Hẻm 6m"],
     contact: "Bất Động Sản Tây Sài Gòn",
-    address: "Đường Tên Lửa, P. Bình Trị Đông B, Bình Tân",
     phone: "0912 345 678",
+    verified: false,
     highlight: false,
   },
 ];
@@ -296,28 +291,61 @@ export default function OtoPage() {
                   >
                     {/* Mobile layout */}
                     <div className="md:hidden">
-                      <Link href={property.href} className="text-[rgb(3,49,196)] block">
-                        <div className="flex gap-3">
-                          <div className="flex-shrink-0 w-[110px]">
-                            <Image alt={property.imgAlt} src={property.img} width={110} height={85} unoptimized className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded" />
-                            <div className="text-center text-[rgb(85,85,85)] text-[13px] mt-1">{property.condition} {property.year}</div>
+                      <Link href={property.href} className="block">
+                        {/* Dòng 1: Tên + Giá cùng hàng */}
+                        <div className="flex justify-between items-baseline gap-2 mb-2">
+                          <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate">
+                            {property.name}
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="font-bold text-[rgb(3,49,196)] mb-1 text-[16px] leading-snug">{property.name}</div>
-                            <div className="flex justify-between items-start gap-2">
-                              <div className="text-[rgb(51,51,51)] text-[14px] leading-snug flex-1">
-                                <span className="mr-1">•</span>{property.desc.replace(/^\*/, "")}
-                              </div>
-                              <div className="font-bold text-red-600 text-[22px] whitespace-nowrap leading-tight">{property.price}</div>
-                            </div>
+                          <div className="font-bold text-red-600 text-[18px] whitespace-nowrap flex-shrink-0">
+                            {property.price}
                           </div>
                         </div>
-                        <div className="mt-2 text-[rgb(51,51,51)] text-[14px]">
-                          <div className="font-bold text-[15px]">{property.contact} <span className="font-normal text-gray-600">— {property.location}</span></div>
-                          <div>• {property.address}</div>
-                          <div>• ĐT: {property.phone}</div>
+
+                        {/* Dòng 2: Ảnh + Specs */}
+                        <div className="flex gap-3">
+                          <div className="flex-shrink-0 w-[120px]">
+                            <Image alt={property.imgAlt} src={property.img} width={120} height={90} unoptimized className="border object-cover w-[120px] h-[90px] border-[rgb(222,222,222)] rounded" />
+                          </div>
+                          <div className="flex-1 grid grid-cols-2 gap-x-3 gap-y-2 content-start pt-1">
+                            {property.specs.map((spec, i) => (
+                              <div key={i} className="text-[15px] text-[rgb(51,51,51)] flex items-center gap-1">
+                                <span className="text-gray-500">·</span>
+                                <span>{spec}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </Link>
+
+                      {/* Dòng 3: Liên hệ + Địa điểm */}
+                      <div className="flex justify-between items-end mt-2">
+                        <div className="text-[13px]">
+                          <div className="flex items-center gap-1">
+                            <span>👤</span>
+                            <span className="font-bold text-[rgb(51,51,51)]">{property.contact}</span>
+                            {property.verified && (
+                              <span className="inline-flex items-center justify-center w-4 h-4 bg-green-500 rounded-full text-white text-[10px]">✓</span>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-1 mt-0.5">
+                            <span>📱</span>
+                            <a href={`tel:${property.phone}`} className="text-[rgb(3,49,196)] font-bold">{property.phone}</a>
+                          </div>
+                          <button className="mt-1.5 text-[13px] text-[rgb(3,49,196)] border border-[rgb(3,49,196)] rounded px-2 py-0.5 font-bold">
+                            📍 Xem địa chỉ
+                          </button>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                          <div className="flex items-center gap-1 text-[13px] font-bold text-red-500">
+                            <span>📍</span>
+                            <span>{property.location}</span>
+                          </div>
+                          <button className="text-[12px] text-gray-400 flex items-center gap-1">
+                            <span>☆</span> Lưu tin
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Desktop layout */}

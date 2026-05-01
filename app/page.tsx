@@ -10,16 +10,15 @@ const propertyListings = [
     href: "/bat-dong-san/6704252",
     condition: "Thổ cư",
     year: 2024,
-    name: "Nhà phố Quận 1",
+    name: "Nhà phố Quận 1 - Mặt tiền Nguyễn Trãi",
     price: "18 Tỷ",
     location: "Q.1",
     img: "/00924551c4c88fee0b345bcfd88e4906-2981955498456485763.jpg",
     imgAlt: "Nhà phố Quận 1",
-    desc: "*Diện tích 4x15m, 1 trệt 3 lầu, hẻm xe hơi, có sổ hồng",
-    detail: "Nhà mặt tiền đường Nguyễn Trãi, vị trí đắc địa, gần trung tâm...",
+    specs: ["Thổ cư ✓", "Sổ hồng", "4x15m", "1 trệt 3 lầu"],
     contact: "Bất Động Sản Sài Gòn",
-    address: "123 Nguyễn Trãi, P. Bến Thành, Q.1",
-    phone: "0906 646 464 - 0906 444 444",
+    phone: "0906 646 464",
+    verified: true,
     highlight: false,
   },
   {
@@ -27,16 +26,15 @@ const propertyListings = [
     href: "/bat-dong-san/6530522",
     condition: "Chung cư",
     year: 2023,
-    name: "Căn hộ Vinhomes Central Park",
+    name: "Căn hộ Vinhomes Central Park 3PN",
     price: "5 Tỷ 200 Tr.",
     location: "Bình Thạnh",
     img: "/1b91c77a98d98476cf31537a7a7596d0-2982041111869541936.jpg",
     imgAlt: "Căn hộ Vinhomes Central Park",
-    desc: "*Diện tích 85m², 2 phòng ngủ, 2 WC, đầy đủ nội thất cao cấp, có sổ hồng",
-    detail: "Căn hộ 2PN tại Vinhomes Central Park, view sông tuyệt đẹp, full nội thất...",
+    specs: ["Chung cư ✓", "Sổ hồng", "85m²", "3 phòng ngủ"],
     contact: "Vinhomes Real Estate",
-    address: "208 Nguyễn Hữu Cảnh, P.22, Bình Thạnh",
     phone: "0976 987 767",
+    verified: true,
     highlight: true,
   },
   {
@@ -44,16 +42,15 @@ const propertyListings = [
     href: "/bat-dong-san/6247719",
     condition: "Chung cư",
     year: 2024,
-    name: "Căn hộ Masteri Thảo Điền",
+    name: "Căn hộ Masteri Thảo Điền 2PN",
     price: "3 Tỷ 800 Tr.",
     location: "Quận 2",
     img: "/23eb243587b6abe39d2b8f2c1ef189a2-2981955502767791339.jpg",
     imgAlt: "Căn hộ Masteri Thảo Điền",
-    desc: "*Diện tích 70m², 2 phòng ngủ, view hồ bơi, full nội thất, có sổ hồng",
-    detail: "Căn hộ cao cấp Masteri Thảo Điền, tiện ích đầy đủ, an ninh 24/7...",
+    specs: ["Chung cư ✓", "Sổ hồng", "70m²", "2 phòng ngủ"],
     contact: "Masteri Real Estate",
-    address: "159 Xa Lộ Hà Nội, P. Thảo Điền, Q.2",
     phone: "0588 448 888",
+    verified: false,
     highlight: false,
   },
   {
@@ -61,16 +58,15 @@ const propertyListings = [
     href: "/bat-dong-san/6554745",
     condition: "Thổ cư",
     year: 2024,
-    name: "Nhà phố Thủ Đức",
+    name: "Nhà phố Thủ Đức - Hẻm xe hơi",
     price: "8 Tỷ 500 Tr.",
     location: "Thủ Đức",
     img: "/3bdaca0fae6082948eb53eb34cec8704-2981955498694556693.jpg",
     imgAlt: "Nhà phố Thủ Đức",
-    desc: "*Diện tích 5x20m, 1 trệt 2 lầu, hẻm xe hơi, có sổ hồng",
-    detail: "Nhà phố mới xây, khu dân cư cao cấp, gần trường học, siêu thị...",
+    specs: ["Thổ cư ✓", "Sổ hồng", "5x20m", "1 trệt 2 lầu"],
     contact: "Địa Ốc Phương Đông",
-    address: "Đường Võ Văn Ngân, P. Linh Chiểu, Thủ Đức",
     phone: "0983 222 223",
+    verified: true,
     highlight: true,
   },
   {
@@ -78,16 +74,15 @@ const propertyListings = [
     href: "/bat-dong-san/6747040",
     condition: "Chung cư",
     year: 2023,
-    name: "Căn hộ Sunrise City",
+    name: "Căn hộ Sunrise City View Q7",
     price: "4 Tỷ 200 Tr.",
     location: "Quận 7",
     img: "/bff1f11c43d71de2adf3cd9463e389c9-2981955504479132907.jpg",
     imgAlt: "Căn hộ Sunrise City",
-    desc: "*Diện tích 90m², 2 phòng ngủ, view đẹp, full nội thất, có sổ hồng",
-    detail: "Căn hộ cao cấp Sunrise City, view đẹp, tiện ích đầy đủ...",
+    specs: ["Chung cư ✓", "Sổ hồng", "90m²", "2 phòng ngủ"],
     contact: "Novaland Real Estate",
-    address: "23 Nguyễn Hữu Thọ, P. Tân Hưng, Q.7",
     phone: "0937 145 678",
+    verified: false,
     highlight: false,
   },
 ];
@@ -207,43 +202,67 @@ export default function HomePage() {
                     <Link href={property.href} className="text-[rgb(3,49,196)] block">
                       {/* Mobile Layout */}
                       <div className="md:hidden">
-                        <div className="flex gap-3">
-                          {/* Image */}
-                          <div className="flex-shrink-0 w-[110px]">
-                            <Image
-                              alt={property.imgAlt}
-                              src={property.img}
-                              width={110}
-                              height={85}
-                              unoptimized
-                              className="border object-cover w-[110px] h-[85px] border-[rgb(222,222,222)] rounded"
-                            />
-                            <div className="text-center text-[rgb(85,85,85)] text-[13px] mt-1">
-                              {property.condition} {property.year}
-                            </div>
-                          </div>
-                          
-                          {/* Content */}
-                          <div className="flex-1 min-w-0">
-                            <div className="font-bold text-[rgb(3,49,196)] mb-1 text-[16px] leading-snug">
+                        <Link href={property.href} className="block">
+                          {/* Dòng 1: Tên + Giá cùng hàng */}
+                          <div className="flex justify-between items-baseline gap-2 mb-2">
+                            <div className="font-bold text-[rgb(3,49,196)] text-[15px] leading-snug min-w-0 truncate">
                               {property.name}
                             </div>
-                            <div className="flex justify-between items-start gap-2">
-                              <div className="text-[rgb(51,51,51)] text-[14px] leading-snug flex-1">
-                                <span className="mr-1">•</span>{property.desc.replace(/^\*/, "")}
-                              </div>
-                              <div className="font-bold text-red-600 text-[22px] whitespace-nowrap leading-tight">
-                                {property.price}
-                              </div>
+                            <div className="font-bold text-red-600 text-[18px] whitespace-nowrap flex-shrink-0">
+                              {property.price}
                             </div>
                           </div>
-                        </div>
-                        
-                        {/* Contact Info */}
-                        <div className="mt-2 text-[rgb(51,51,51)] text-[14px]">
-                          <div className="font-bold text-[15px]">{property.contact} <span className="font-normal text-gray-600">— {property.location}</span></div>
-                          <div>• {property.address}</div>
-                          <div>• ĐT: {property.phone}</div>
+
+                          {/* Dòng 2: Ảnh + Specs */}
+                          <div className="flex gap-3">
+                            <div className="flex-shrink-0 w-[120px]">
+                              <Image
+                                alt={property.imgAlt}
+                                src={property.img}
+                                width={120}
+                                height={90}
+                                unoptimized
+                                className="border object-cover w-[120px] h-[90px] border-[rgb(222,222,222)] rounded"
+                              />
+                            </div>
+                            <div className="flex-1 grid grid-cols-2 gap-x-3 gap-y-2 content-start pt-1">
+                              {property.specs.map((spec, i) => (
+                                <div key={i} className="text-[15px] text-[rgb(51,51,51)] flex items-center gap-1">
+                                  <span className="text-gray-500">·</span>
+                                  <span>{spec}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </Link>
+
+                        {/* Dòng 3: Liên hệ + Địa điểm */}
+                        <div className="flex justify-between items-end mt-2">
+                          <div className="text-[13px]">
+                            <div className="flex items-center gap-1">
+                              <span>👤</span>
+                              <span className="font-bold text-[rgb(51,51,51)]">{property.contact}</span>
+                              {property.verified && (
+                                <span className="inline-flex items-center justify-center w-4 h-4 bg-green-500 rounded-full text-white text-[10px]">✓</span>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-1 mt-0.5">
+                              <span>📱</span>
+                              <a href={`tel:${property.phone}`} className="text-[rgb(3,49,196)] font-bold">{property.phone}</a>
+                            </div>
+                            <button className="mt-1.5 text-[13px] text-[rgb(3,49,196)] border border-[rgb(3,49,196)] rounded px-2 py-0.5 font-bold">
+                              📍 Xem địa chỉ
+                            </button>
+                          </div>
+                          <div className="flex flex-col items-end gap-1">
+                            <div className="flex items-center gap-1 text-[13px] font-bold text-red-500">
+                              <span>📍</span>
+                              <span>{property.location}</span>
+                            </div>
+                            <button className="text-[12px] text-gray-400 flex items-center gap-1">
+                              <span>☆</span> Lưu tin
+                            </button>
+                          </div>
                         </div>
                       </div>
 
