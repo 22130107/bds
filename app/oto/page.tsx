@@ -393,7 +393,7 @@ export default function OtoPage() {
           <div className="hidden md:block float-left w-[250px] min-h-[800px] ml-[10px]">
             <div className="border bg-[rgb(239,244,253)] border-[rgb(160,179,217)] p-[10px] mb-[10px]">
               <h3 className="font-bold text-[rgb(68,68,68)] mb-[10px]">Đăng tin nhanh</h3>
-              <Link href="/dang-tin-ban-xe" className="block text-center bg-[rgb(16,92,182)] text-white font-bold py-2 px-4 rounded mb-2">
+              <Link href="/dang-nhap" className="block text-center bg-[rgb(16,92,182)] text-white font-bold py-2 px-4 rounded mb-2">
                 + Đăng tin bán BĐS
               </Link>
             </div>

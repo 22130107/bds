@@ -153,13 +153,13 @@ export default function HomePage() {
                 Toàn quốc
               </Link>
               <Link
-                href="/ha-noi/oto"
+                href="/oto"
                 className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-3"
               >
                 Hà Nội
               </Link>
               <Link
-                href="/tp-hcm/oto"
+                href="/oto"
                 className="inline-block font-bold text-[rgb(53,51,169)] py-1 px-3"
               >
                 TP HCM
@@ -349,7 +349,7 @@ export default function HomePage() {
               </div>
               <div className="p-[10px]">
                 <Link
-                  href="/dang-tin-ban-xe"
+                  href="/dang-nhap"
                   className="block text-center bg-[rgb(255,182,75)] text-black font-bold py-[8px] px-4 mb-[8px] text-[13px] hover:bg-[rgb(255,165,0)]"
                 >
                   Đăng tin bán BĐS
@@ -361,7 +361,7 @@ export default function HomePage() {
                   Đăng tin cần mua BĐS
                 </Link>
                 <Link
-                  href="/tim-nguoi-mua-xe"
+                  href="/tin-mua-xe"
                   className="block text-center bg-white border border-[rgb(255,182,75)] text-black font-bold py-[8px] px-4 text-[13px] hover:bg-[rgb(255,255,229)]"
                 >
                   Tìm người mua BĐS
