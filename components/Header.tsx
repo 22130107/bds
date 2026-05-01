@@ -92,11 +92,29 @@ export default function Header() {
             </Link>
             <Link
               href="/my-bonbanh"
-              className="block px-4 py-3 text-[rgb(3,49,196)] font-bold"
+              className="block px-4 py-3 text-[rgb(3,49,196)] font-bold border-b border-gray-100"
               onClick={() => setMenuOpen(false)}
             >
               Tài khoản
             </Link>
+            {/* Divider */}
+            <div className="border-t-4 border-gray-200" />
+            <div className="grid grid-cols-2">
+              <Link
+                href="/dang-nhap"
+                className="block px-4 py-3 text-center text-white font-bold bg-[rgb(16,92,182)] border-r border-gray-100"
+                onClick={() => setMenuOpen(false)}
+              >
+                Đăng nhập
+              </Link>
+              <Link
+                href="/dang-ky"
+                className="block px-4 py-3 text-center text-[rgb(16,92,182)] font-bold bg-gray-50"
+                onClick={() => setMenuOpen(false)}
+              >
+                Đăng ký
+              </Link>
+            </div>
           </div>
         )}
       </div>
