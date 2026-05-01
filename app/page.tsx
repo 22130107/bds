@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BrandSidebar from "@/components/BrandSidebar";
+import { IconUser, IconPhone, IconLocation, IconStar } from "@/components/Icons";
 
 const propertyListings = [
   {
@@ -239,28 +240,28 @@ export default function HomePage() {
                         {/* Dòng 3: Liên hệ + Địa điểm */}
                         <div className="flex justify-between items-end mt-2">
                           <div className="text-[13px]">
-                            <div className="flex items-center gap-1">
-                              <span>👤</span>
+                            <div className="flex items-center gap-1.5">
+                              <IconUser />
                               <span className="font-bold text-[rgb(51,51,51)]">{property.contact}</span>
                               {property.verified && (
                                 <span className="inline-flex items-center justify-center w-4 h-4 bg-green-500 rounded-full text-white text-[10px]">✓</span>
                               )}
                             </div>
-                            <div className="flex items-center gap-1 mt-0.5">
-                              <span>📱</span>
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                              <IconPhone />
                               <a href={`tel:${property.phone}`} className="text-[rgb(3,49,196)] font-bold">{property.phone}</a>
                             </div>
-                            <button className="mt-1.5 text-[13px] text-[rgb(3,49,196)] border border-[rgb(3,49,196)] rounded px-2 py-0.5 font-bold">
-                              📍 Xem địa chỉ
+                            <button className="mt-1.5 text-[13px] text-[rgb(3,49,196)] border border-[rgb(3,49,196)] rounded px-2 py-0.5 font-bold flex items-center gap-1">
+                              <IconLocation className="text-[rgb(3,49,196)] w-3 h-3" /> Xem địa chỉ
                             </button>
                           </div>
                           <div className="flex flex-col items-end gap-1">
                             <div className="flex items-center gap-1 text-[13px] font-bold text-red-500">
-                              <span>📍</span>
+                              <IconLocation className="text-red-500 w-3 h-3" />
                               <span>{property.location}</span>
                             </div>
                             <button className="text-[12px] text-gray-400 flex items-center gap-1">
-                              <span>☆</span> Lưu tin
+                              <IconStar className="text-gray-400 w-3 h-3" /> Lưu tin
                             </button>
                           </div>
                         </div>
