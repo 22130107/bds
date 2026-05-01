@@ -7,44 +7,64 @@ export default function Header() {
 
   return (
     <>
-      {/* ===== MOBILE HEADER ===== */}
-      <div className="md:hidden" style={{ position: 'relative' }}>
-        <div className="bg-white border-b border-gray-200 flex items-center justify-between px-4 py-3">
-          <button
+      {/* ===== MOBILE HEADER - chỉ hiện dưới 768px ===== */}
+      <div style={{ display: 'block' }} className="md:hidden">
+        <div style={{
+          background: 'white',
+          borderBottom: '1px solid #e5e7eb',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '12px 16px',
+          position: 'relative',
+        }}>
+          {/* Hamburger - vùng click lớn */}
+          <div
             onClick={() => setMenuOpen(!menuOpen)}
-            type="button"
             style={{
-              padding: '10px',
+              width: '44px',
+              height: '44px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               cursor: 'pointer',
-              background: 'none',
-              border: 'none',
-              touchAction: 'manipulation',
+              flexShrink: 0,
               zIndex: 10,
               position: 'relative',
-              flexShrink: 0,
+              backgroundColor: menuOpen ? '#f3f4f6' : 'transparent',
+              borderRadius: '6px',
             }}
           >
-            <svg width="28" height="28" fill="none" stroke="#374151" strokeWidth="2" viewBox="0 0 24 24">
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1f2937" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
             </svg>
-          </button>
+          </div>
 
-          <div style={{ position: 'absolute', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none' }}>
-            <Link href="/" style={{ pointerEvents: 'auto', display: 'inline-block' }}>
-              <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'rgb(0,92,198)' }}>
-                BDS<span style={{ color: 'red' }}>.com</span>
-              </span>
-              <div style={{ fontSize: '11px', color: '#888', fontStyle: 'italic' }}>
+          {/* Logo - căn giữa tuyệt đối */}
+          <div style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            textAlign: 'center',
+            pointerEvents: 'none',
+          }}>
+            <Link href="/" style={{ pointerEvents: 'auto', display: 'inline-block', textDecoration: 'none' }}>
+              <div style={{ fontSize: '20px', fontWeight: 'bold' }}>
+                <span style={{ color: 'rgb(0,92,198)' }}>BDS</span>
+                <span style={{ color: 'red' }}>.com</span>
+              </div>
+              <div style={{ fontSize: '11px', color: '#9ca3af', fontStyle: 'italic' }}>
                 Mua bán nhà đất uy tín
               </div>
             </Link>
           </div>
 
-          <div style={{ width: '48px', flexShrink: 0 }} />
+          {/* Spacer phải */}
+          <div style={{ width: '44px', flexShrink: 0, marginLeft: 'auto' }} />
         </div>
 
+        {/* Dropdown menu */}
         {menuOpen && (
           <div style={{
             position: 'absolute',
@@ -53,7 +73,7 @@ export default function Header() {
             right: 0,
             background: 'white',
             borderTop: '1px solid #e5e7eb',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
             zIndex: 9999,
           }}>
             {[
@@ -71,11 +91,12 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
                 style={{
                   display: 'block',
-                  padding: '14px 16px',
+                  padding: '14px 20px',
                   color: 'rgb(3,49,196)',
                   fontWeight: 'bold',
                   borderBottom: '1px solid #f3f4f6',
-                  fontSize: '15px',
+                  fontSize: '16px',
+                  textDecoration: 'none',
                 }}
               >
                 {item.label}
@@ -83,11 +104,11 @@ export default function Header() {
             ))}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderTop: '3px solid #e5e7eb' }}>
               <Link href="/dang-nhap" onClick={() => setMenuOpen(false)}
-                style={{ display: 'block', padding: '14px', textAlign: 'center', background: 'rgb(16,92,182)', color: 'white', fontWeight: 'bold', fontSize: '15px' }}>
+                style={{ display: 'block', padding: '14px', textAlign: 'center', background: 'rgb(16,92,182)', color: 'white', fontWeight: 'bold', fontSize: '15px', textDecoration: 'none' }}>
                 Đăng nhập
               </Link>
               <Link href="/dang-ky" onClick={() => setMenuOpen(false)}
-                style={{ display: 'block', padding: '14px', textAlign: 'center', color: 'rgb(16,92,182)', fontWeight: 'bold', fontSize: '15px', background: '#f9fafb' }}>
+                style={{ display: 'block', padding: '14px', textAlign: 'center', color: 'rgb(16,92,182)', fontWeight: 'bold', fontSize: '15px', background: '#f9fafb', textDecoration: 'none' }}>
                 Đăng ký
               </Link>
             </div>
