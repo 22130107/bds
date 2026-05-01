@@ -214,7 +214,7 @@ export default function HomePage() {
                 {propertyListings.map((property) => (
                   <div
                     key={property.id}
-                    className={`border-b float-left w-full h-[131px] pt-[5px] pr-0 pb-0 pl-0 ${
+                    className={`border-b float-left w-full h-[131px] pt-[5px] pr-0 pb-0 pl-0 mb-[5px] ${
                       property.highlight ? "bg-[rgb(255,254,242)]" : ""
                     }`}
                     style={{

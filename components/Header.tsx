@@ -87,7 +87,7 @@ export default function Header() {
           Công ty BĐS
         </Link>
         <Link
-          href="/dang-tin-ban-xe"
+          href="/dang-nhap"
           className="border-l border-r block float-left font-bold text-center whitespace-nowrap text-[rgb(3,49,196)] pt-2 pr-3 pb-2 pl-3"
           style={{
             borderRightColor: "rgb(199, 199, 199)",

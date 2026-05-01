@@ -214,28 +214,27 @@ export default function SalonOtoPage() {
             </div>
 
             {/* Salon list */}
-            <div className="overflow-hidden">
-              <div className="w-full mt-[5px]">
+            <div className="w-full p-[5px]">
+              <div className="w-full mt-[5px] mb-[10px]">
                 <h1
-                  className="box-content inline-block font-bold ml-[5px] mb-[10px] text-[17px] pt-[6px] pr-[10px] pb-[6px] pl-0 border-b-[3px]"
+                  className="inline-block font-bold text-[17px] pt-[6px] pr-[10px] pb-[6px] pl-0 border-b-[3px]"
                   style={{ borderBottomColor: "rgb(234, 234, 234)" }}
                 >
                   Danh sách công ty bất động sản - đại lý uy tín
                 </h1>
               </div>
 
-              {/* Featured salons */}
-              <div className="w-full overflow-hidden">
+              {/* Featured salons - Grid 4 columns */}
+              <div className="grid grid-cols-4 gap-[5px] w-full mb-[5px]">
                 {featuredSalons.map((salon) => (
                   <div
                     key={salon.slug}
-                    className="border-b border-r float-left overflow-hidden w-[25%] h-[124px] bg-[rgb(255,255,217)] p-2"
+                    className="border h-[124px] bg-[rgb(255,255,217)] p-2"
                     style={{
-                      borderRightColor: "rgb(222, 222, 222)",
-                      borderBottomColor: "rgb(222, 222, 222)",
+                      borderColor: "rgb(222, 222, 222)",
                     }}
                   >
-                    <Link href={`/salon/${salon.slug}`} className="text-[rgb(3,49,196)]">
+                    <Link href={`/cong-ty/${salon.slug}`} className="block h-full">
                       <div className="h-[70px] text-black">
                         <Image
                           src={salon.img}
@@ -243,17 +242,17 @@ export default function SalonOtoPage() {
                           width={65}
                           height={65}
                           unoptimized
-                          className="border box-content block float-right overflow-clip p-px w-[65px] border-[rgb(222,222,222)] opacity-[0.8] m-[2px]"
+                          className="border float-right w-[65px] h-[65px] border-[rgb(222,222,222)] opacity-[0.8] m-[2px] p-px"
                         />
                         <span className="font-bold text-[rgb(3,49,196)] text-[14px]">
                           {salon.name}
                         </span>
                         <br />
-                        <div className="box-content italic text-[rgb(34,34,34)] text-[11px] pt-[5px] pr-0 pb-0 pl-0">
+                        <div className="italic text-[rgb(34,34,34)] text-[11px] pt-[5px]">
                           {salon.desc}
                         </div>
                       </div>
-                      <div className="box-content text-[rgb(34,34,34)] text-[11px] pt-[3px] pr-0 pb-[3px] pl-0">
+                      <div className="text-[rgb(34,34,34)] text-[11px] pt-[3px] pb-[3px]">
                         {salon.address}
                       </div>
                     </Link>
@@ -261,18 +260,17 @@ export default function SalonOtoPage() {
                 ))}
               </div>
 
-              {/* Regular salons */}
-              <div className="w-full overflow-hidden">
+              {/* Regular salons - Grid 4 columns */}
+              <div className="grid grid-cols-4 gap-[5px] w-full">
                 {regularSalons.map((salon) => (
                   <div
                     key={salon.slug}
-                    className="border-b border-r float-left overflow-hidden w-[25%] h-[124px] p-2"
+                    className="border h-[124px] bg-white p-2"
                     style={{
-                      borderRightColor: "rgb(222, 222, 222)",
-                      borderBottomColor: "rgb(222, 222, 222)",
+                      borderColor: "rgb(222, 222, 222)",
                     }}
                   >
-                    <Link href={`/salon/${salon.slug}`} className="text-[rgb(3,49,196)]">
+                    <Link href={`/cong-ty/${salon.slug}`} className="block h-full">
                       <div className="h-[75px] text-black">
                         <Image
                           src={salon.img}
@@ -280,17 +278,17 @@ export default function SalonOtoPage() {
                           width={65}
                           height={65}
                           unoptimized
-                          className="border box-content block float-right overflow-clip p-px w-[65px] bg-[rgb(253,253,253)] border-[rgb(222,222,222)] opacity-[0.8] m-[2px]"
+                          className="border float-right w-[65px] h-[65px] bg-[rgb(253,253,253)] border-[rgb(222,222,222)] opacity-[0.8] m-[2px] p-px"
                         />
                         <span className="font-bold text-[rgb(3,49,196)] text-[14px]">
                           {salon.name}
                         </span>
                         <br />
-                        <div className="box-content italic text-[rgb(102,102,102)] text-[11px] pt-[5px] pr-0 pb-0 pl-0">
+                        <div className="italic text-[rgb(102,102,102)] text-[11px] pt-[5px]">
                           {salon.desc}
                         </div>
                       </div>
-                      <div className="box-content text-[rgb(68,68,68)] text-[11px] pt-[3px] pr-0 pb-[3px] pl-0">
+                      <div className="text-[rgb(68,68,68)] text-[11px] pt-[3px] pb-[3px]">
                         {salon.address}
                       </div>
                     </Link>
