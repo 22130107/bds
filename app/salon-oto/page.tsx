@@ -221,77 +221,73 @@ export default function SalonOtoPage() {
                 </h1>
               </div>
 
-              {/* Featured salons - Responsive grid, limit item width on mobile */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-[10px] w-full mb-2 sm:mb-[10px] justify-items-center">
+              {/* Featured salons - 2 cột trên mobile */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full mb-4">
                 {featuredSalons.map((salon) => (
-                  <div
+                  <Link
                     key={salon.slug}
-                    className="border bg-[rgb(255,255,217)] p-2 sm:p-3 flex flex-col justify-between h-[120px] sm:h-[160px] rounded-md shadow-sm hover:shadow-md transition-shadow w-full max-w-[340px]"
+                    href={`/cong-ty/${salon.slug}`}
+                    className="border bg-[rgb(255,255,217)] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
                     style={{ borderColor: "rgb(222, 222, 222)" }}
                   >
-                    <Link href={`/cong-ty/${salon.slug}`} className="flex-1 flex flex-col justify-between h-full">
-                      <div className="flex items-center gap-1 sm:gap-2 h-[48px] sm:h-[70px]">
-                        <Image
-                          src={salon.img}
-                          alt={salon.name}
-                          width={65}
-                          height={65}
-                          unoptimized
-                          className="border w-[40px] h-[40px] sm:w-[65px] sm:h-[65px] border-[rgb(222,222,222)] opacity-[0.8] rounded object-cover bg-white"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <span className="font-bold text-[rgb(3,49,196)] text-[12px] sm:text-[14px] block truncate">
-                            {salon.name}
-                          </span>
-                          <div className="italic text-[rgb(34,34,34)] text-[9px] sm:text-[11px] pt-[1px] sm:pt-[2px] truncate">
-                            {salon.desc}
-                          </div>
-                        </div>
+                    {/* Ảnh vuông */}
+                    <div className="w-full aspect-square relative">
+                      <Image
+                        src={salon.img}
+                        alt={salon.name}
+                        fill
+                        unoptimized
+                        className="object-cover"
+                      />
+                    </div>
+                    {/* Nội dung */}
+                    <div className="p-2 flex flex-col gap-1">
+                      <span className="font-bold text-[rgb(3,49,196)] text-[14px] leading-snug line-clamp-2">
+                        {salon.name}
+                      </span>
+                      <div className="italic text-[rgb(51,51,51)] text-[12px] line-clamp-2">
+                        {salon.desc}
                       </div>
-                      <div className="text-[rgb(34,34,34)] text-[9px] sm:text-[11px] pt-[2px] sm:pt-[3px] pb-[2px] sm:pb-[3px] truncate">
-                        {salon.address}
+                      <div className="text-[rgb(68,68,68)] text-[12px] line-clamp-2 mt-1">
+                        📍 {salon.address}
                       </div>
-                    </Link>
-                  </div>
-                ))}
-                {/* Thêm placeholder nếu thiếu cột */}
-                {Array.from({ length: (4 - (featuredSalons.length % 4)) % 4 }).map((_, idx) => (
-                  <div key={"placeholder-" + idx} className="invisible" />
+                    </div>
+                  </Link>
                 ))}
               </div>
 
-              {/* Regular salons - Responsive grid, limit item width on mobile */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-[10px] w-full justify-items-center">
+              {/* Regular salons - 2 cột trên mobile */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full">
                 {regularSalons.map((salon) => (
-                  <div
+                  <Link
                     key={salon.slug}
-                    className="border bg-white p-2 sm:p-3 flex flex-col justify-between h-[120px] sm:h-[160px] rounded-md shadow-sm hover:shadow-md transition-shadow w-full max-w-[340px]"
+                    href={`/cong-ty/${salon.slug}`}
+                    className="border bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
                     style={{ borderColor: "rgb(222, 222, 222)" }}
                   >
-                    <Link href={`/cong-ty/${salon.slug}`} className="flex-1 flex flex-col justify-between h-full">
-                      <div className="flex items-center gap-1 sm:gap-2 h-[48px] sm:h-[70px]">
-                        <Image
-                          src={salon.img}
-                          alt={salon.name}
-                          width={65}
-                          height={65}
-                          unoptimized
-                          className="border w-[40px] h-[40px] sm:w-[65px] sm:h-[65px] border-[rgb(222,222,222)] opacity-[0.8] rounded object-cover bg-white"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <span className="font-bold text-[rgb(3,49,196)] text-[12px] sm:text-[14px] block truncate">
-                            {salon.name}
-                          </span>
-                          <div className="italic text-[rgb(102,102,102)] text-[9px] sm:text-[11px] pt-[1px] sm:pt-[2px] truncate">
-                            {salon.desc}
-                          </div>
-                        </div>
+                    {/* Ảnh vuông */}
+                    <div className="w-full aspect-square relative">
+                      <Image
+                        src={salon.img}
+                        alt={salon.name}
+                        fill
+                        unoptimized
+                        className="object-cover"
+                      />
+                    </div>
+                    {/* Nội dung */}
+                    <div className="p-2 flex flex-col gap-1">
+                      <span className="font-bold text-[rgb(3,49,196)] text-[14px] leading-snug line-clamp-2">
+                        {salon.name}
+                      </span>
+                      <div className="italic text-[rgb(102,102,102)] text-[12px] line-clamp-2">
+                        {salon.desc}
                       </div>
-                      <div className="text-[rgb(68,68,68)] text-[9px] sm:text-[11px] pt-[2px] sm:pt-[3px] pb-[2px] sm:pb-[3px] truncate">
-                        {salon.address}
+                      <div className="text-[rgb(68,68,68)] text-[12px] line-clamp-2 mt-1">
+                        📍 {salon.address}
                       </div>
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>
