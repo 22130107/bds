@@ -371,10 +371,12 @@ export default function OtoPage() {
                           <Image alt={property.imgAlt} src={property.img} width={90} height={70} unoptimized className="border object-cover w-[90px] border-[rgb(222,222,222)] max-h-[70px] rounded m-[2px]" />
                           <br /><span className="text-[rgb(85,85,85)] text-[11px]">Mã: {property.id}</span>
                         </div>
-                        <div className="float-left text-left w-[198px] h-[90px] text-[rgb(51,51,51)]">{property.desc}&nbsp;<p className="mt-[5px] mb-[5px]">{property.detail}</p></div>
+                        <div className="float-left text-left w-[198px] h-[90px] text-[rgb(51,51,51)]">
+                          {property.specs.map((s, i) => <div key={i}>· {s}</div>)}
+                        </div>
                       </Link>
                       <div className="float-left text-left w-[182px] h-[90px] text-[rgb(85,85,85)] pl-2">
-                        LH: <b>{property.contact}</b>&nbsp; {property.address} &nbsp; ĐT: {property.phone}
+                        LH: <b>{property.contact}</b>&nbsp; ĐT: {property.phone}
                       </div>
                       <div className="clear-both"></div>
                     </div>
