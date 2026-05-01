@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <>
       {/* ===== MOBILE HEADER ===== */}
-      <div className="md:hidden">
+      <div className="md:hidden" style={{ position: 'relative' }}>
         <div className="bg-white border-b border-gray-200 flex items-center justify-between px-4 py-3">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -19,6 +19,9 @@ export default function Header() {
               background: 'none',
               border: 'none',
               touchAction: 'manipulation',
+              zIndex: 10,
+              position: 'relative',
+              flexShrink: 0,
             }}
           >
             <svg width="28" height="28" fill="none" stroke="#374151" strokeWidth="2" viewBox="0 0 24 24">
@@ -28,16 +31,18 @@ export default function Header() {
             </svg>
           </button>
 
-          <Link href="/" style={{ flex: 1, textAlign: 'center' }}>
-            <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'rgb(0,92,198)' }}>
-              BDS<span style={{ color: 'red' }}>.com</span>
-            </span>
-            <div style={{ fontSize: '11px', color: '#888', fontStyle: 'italic' }}>
-              Mua bán nhà đất uy tín
-            </div>
-          </Link>
+          <div style={{ position: 'absolute', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none' }}>
+            <Link href="/" style={{ pointerEvents: 'auto', display: 'inline-block' }}>
+              <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'rgb(0,92,198)' }}>
+                BDS<span style={{ color: 'red' }}>.com</span>
+              </span>
+              <div style={{ fontSize: '11px', color: '#888', fontStyle: 'italic' }}>
+                Mua bán nhà đất uy tín
+              </div>
+            </Link>
+          </div>
 
-          <div style={{ width: '48px' }} />
+          <div style={{ width: '48px', flexShrink: 0 }} />
         </div>
 
         {menuOpen && (
