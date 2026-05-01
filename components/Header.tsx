@@ -14,11 +14,12 @@ export default function Header() {
           {/* Hamburger Menu */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-gray-700 focus:outline-none p-2 -ml-2"
+            className="text-gray-700 focus:outline-none"
             aria-label="Menu"
             type="button"
+            style={{ padding: '12px', margin: '-12px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
           >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -121,7 +122,7 @@ export default function Header() {
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden md:block float-left w-[990px]">
+      <div className="hidden md:block w-full">
         {/* Logo */}
         <Link
           href="/"

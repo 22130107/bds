@@ -91,7 +91,7 @@ const propertyListings = [
 export default function HomePage() {
   return (
     <div
-      className="text-black text-[16px] leading-[normal] overflow-x-hidden"
+      className="text-black text-[16px] leading-[normal]"
       style={{
         fontFamily: '"Times New Roman"',
         textDecoration: "none",
@@ -99,7 +99,7 @@ export default function HomePage() {
       }}
     >
       <div
-        className="text-[12px] overflow-x-hidden"
+        className="text-[12px]"
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
       >
         <div className="ml-auto mr-auto relative w-full md:max-w-[990px]">
@@ -111,7 +111,7 @@ export default function HomePage() {
           </div>
 
           {/* Main content */}
-          <div className="w-full md:float-left md:w-[490px] min-h-[800px] relative overflow-x-hidden" style={{ zIndex: 1 }}>
+          <div className="w-full md:float-left md:w-[490px] min-h-[800px] relative" style={{ zIndex: 1 }}>
             {/* Search box */}
             <form>
               <div className="w-full">

@@ -118,10 +118,10 @@ export default function OtoPage() {
 
   return (
     <div
-      className="text-black text-[16px] leading-[normal] overflow-x-hidden"
+      className="text-black text-[16px] leading-[normal]"
       style={{ fontFamily: '"Times New Roman"', textDecoration: "none", margin: "auto" }}
     >
-      <div className="text-[12px] overflow-x-hidden" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+      <div className="text-[12px]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
         <div className="ml-auto mr-auto relative w-full md:max-w-[990px]">
           <Header />
 
