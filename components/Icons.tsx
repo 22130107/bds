@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faMobileScreen, faLocationDot, faStar, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 export function IconUser({ className }: { className?: string }) {
-  return <FontAwesomeIcon icon={faUser} className={className ?? "text-blue-700 w-4 h-4"} />;
+  return <FontAwesomeIcon icon={faUser} className={className ?? "text-red-600 w-4 h-4"} />;
 }
 
 export function IconPhone({ className }: { className?: string }) {
-  return <FontAwesomeIcon icon={faMobileScreen} className={className ?? "text-blue-700 w-4 h-4"} />;
+  return <FontAwesomeIcon icon={faMobileScreen} className={className ?? "text-red-600 w-4 h-4"} />;
 }
 
 export function IconLocation({ className }: { className?: string }) {
