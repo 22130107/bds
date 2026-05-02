@@ -4,11 +4,48 @@ import { useState } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
+
+  const marqueeAds = [
+    "🏠 Bán nhà mặt tiền Quận 1 - 18 Tỷ - SHR - LH ngay!",
+    "🏡 Đất nền Long An 500m² - Giá chỉ 1.2 Tỷ - Sổ đỏ",
+    "🏢 Căn hộ cao cấp Bình Thạnh - 2PN - 3.5 Tỷ - View sông",
+    "🌳 Biệt thự vườn Bình Dương - 800m² - 5 Tỷ - Thương lượng",
+    "🏬 Mặt bằng kinh doanh Quận 7 - 120m² - Giá thuê hấp dẫn",
+  ];
 
   return (
     <>
       {/* ===== MOBILE HEADER - chỉ hiện dưới 768px ===== */}
-      <div style={{ display: 'block' }} className="md:hidden">
+      <div className="md:hidden">
+
+        {/* === TICKER QUẢNG CÁO BĐS === */}
+        <div style={{
+          background: 'linear-gradient(90deg, #003087 0%, #0050c8 100%)',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          padding: '6px 0',
+          borderBottom: '2px solid #ffd700',
+        }}>
+          <div style={{
+            display: 'inline-block',
+            animation: 'marquee-scroll 28s linear infinite',
+            paddingLeft: '100%',
+          }}>
+            {marqueeAds.map((ad, i) => (
+              <span key={i} style={{
+                color: '#fff',
+                fontSize: '13px',
+                fontWeight: '600',
+                marginRight: '60px',
+              }}>
+                {ad}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* === LOGO + HAMBURGER === */}
         <div style={{
           background: 'white',
           borderBottom: '1px solid #e5e7eb',
@@ -17,7 +54,7 @@ export default function Header() {
           padding: '12px 16px',
           position: 'relative',
         }}>
-          {/* Hamburger - vùng click lớn */}
+          {/* Hamburger */}
           <div
             onClick={() => setMenuOpen(!menuOpen)}
             style={{
@@ -41,7 +78,7 @@ export default function Header() {
             </svg>
           </div>
 
-          {/* Logo - căn giữa tuyệt đối */}
+          {/* Logo căn giữa */}
           <div style={{
             position: 'absolute',
             left: 0,
@@ -114,6 +151,154 @@ export default function Header() {
             </div>
           </div>
         )}
+
+        {/* === FLOATING BUTTONS: ZALO + AI === */}
+        <div style={{
+          position: 'fixed',
+          bottom: '24px',
+          right: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+          zIndex: 9990,
+        }}>
+          {/* Zalo button - nháy rung đỏ */}
+          <a
+            href="https://zalo.me/0909000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Chat Zalo"
+            style={{
+              width: '52px',
+              height: '52px',
+              borderRadius: '50%',
+              background: '#0068ff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 14px rgba(0,104,255,0.5)',
+              animation: 'zalo-shake 1.2s ease-in-out infinite',
+              position: 'relative',
+              textDecoration: 'none',
+            }}
+          >
+            {/* Vòng sóng đỏ */}
+            <span style={{
+              position: 'absolute',
+              inset: '-4px',
+              borderRadius: '50%',
+              border: '3px solid #ff2222',
+              animation: 'zalo-ring 1.2s ease-out infinite',
+            }} />
+            <span style={{
+              position: 'absolute',
+              inset: '-10px',
+              borderRadius: '50%',
+              border: '2px solid #ff4444',
+              animation: 'zalo-ring 1.2s ease-out infinite 0.3s',
+            }} />
+            {/* Zalo official logo */}
+            <img
+              src="/zalo-icon.svg"
+              alt="Zalo"
+              width="36"
+              height="36"
+            />
+          </a>
+
+          {/* AI button */}
+          <button
+            onClick={() => setAiOpen(v => !v)}
+            title="Hỏi AI BĐS"
+            style={{
+              width: '52px',
+              height: '52px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)',
+              border: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 14px rgba(124,58,237,0.5)',
+              cursor: 'pointer',
+              animation: 'ai-pulse 2.5s ease-in-out infinite',
+            }}
+          >
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" fill="white" fillOpacity="0.15"/>
+              <path d="M9 9h1.5l1.5 4 1.5-4H15" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="7.5" cy="12" r="1" fill="white"/>
+              <circle cx="16.5" cy="12" r="1" fill="white"/>
+              <path d="M8 16c1.1.8 2.4 1.2 4 1.2s2.9-.4 4-1.2" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        {/* AI Chat popup */}
+        {aiOpen && (
+          <div style={{
+            position: 'fixed',
+            bottom: '150px',
+            left: '16px',
+            width: '280px',
+            background: 'white',
+            borderRadius: '16px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+            zIndex: 9991,
+            overflow: 'hidden',
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)',
+              padding: '12px 16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}>
+              <div style={{ color: 'white', fontWeight: 'bold', fontSize: '14px' }}>🤖 AI Tư vấn BĐS</div>
+              <button onClick={() => setAiOpen(false)} style={{ background: 'none', border: 'none', color: 'white', fontSize: '20px', cursor: 'pointer', lineHeight: 1 }}>×</button>
+            </div>
+            <div style={{ padding: '16px', fontSize: '13px', color: '#374151' }}>
+              <p style={{ margin: '0 0 12px', fontWeight: '600' }}>Xin chào! Tôi có thể giúp bạn:</p>
+              {['Tìm BĐS theo ngân sách', 'Tư vấn khu vực đầu tư', 'Định giá bất động sản', 'Thủ tục mua bán nhà đất'].map(q => (
+                <div key={q} style={{
+                  padding: '8px 12px',
+                  marginBottom: '6px',
+                  background: '#f3f4f6',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  color: '#2563eb',
+                  fontWeight: '500',
+                }}>💬 {q}</div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* CSS Animations */}
+        <style>{`
+          @keyframes marquee-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+          }
+          @keyframes zalo-shake {
+            0%, 100% { transform: rotate(0deg); }
+            15%       { transform: rotate(-12deg); }
+            30%       { transform: rotate(12deg); }
+            45%       { transform: rotate(-8deg); }
+            60%       { transform: rotate(8deg); }
+            75%       { transform: rotate(-4deg); }
+            90%       { transform: rotate(4deg); }
+          }
+          @keyframes zalo-ring {
+            0%   { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.6); opacity: 0; }
+          }
+          @keyframes ai-pulse {
+            0%, 100% { box-shadow: 0 4px 14px rgba(124,58,237,0.5); }
+            50%       { box-shadow: 0 4px 24px rgba(124,58,237,0.9), 0 0 0 6px rgba(124,58,237,0.15); }
+          }
+        `}</style>
       </div>
 
       {/* ===== DESKTOP HEADER ===== */}
