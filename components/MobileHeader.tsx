@@ -304,7 +304,7 @@ export default function MobileHeader() {
           boxShadow: "0 8px 32px rgba(0,0,0,0.25)", zIndex: 9991,
           display: "flex", flexDirection: "column", maxHeight: "460px",
           overflow: "hidden",
-          fontFamily: "Arial, Helvetica, sans-serif",
+          fontFamily: "'Open Sans', Arial, sans-serif",
           fontSize: "14px",
           lineHeight: "1.5",
         }}>
@@ -385,7 +385,7 @@ export default function MobileHeader() {
               style={{
                 flex: 1, border: "1px solid #d1d5db", borderRadius: "8px",
                 padding: "8px 10px", fontSize: "14px", outline: "none",
-                fontFamily: "Arial, Helvetica, sans-serif",
+                fontFamily: "'Open Sans', Arial, sans-serif",
               }}
             />
             <button onClick={() => askAI(input)} disabled={loading || !input.trim()}
@@ -394,7 +394,7 @@ export default function MobileHeader() {
                 color: "white", border: "none", borderRadius: "8px",
                 padding: "8px 14px", cursor: loading || !input.trim() ? "not-allowed" : "pointer",
                 fontSize: "14px", fontWeight: "700",
-                fontFamily: "Arial, Helvetica, sans-serif",
+                fontFamily: "'Open Sans', Arial, sans-serif",
               }}>
               Gửi
             </button>
