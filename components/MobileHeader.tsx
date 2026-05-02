@@ -40,6 +40,7 @@ const AI_ANSWERS: Record<string, string[]> = {
 export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
+  const [zaloOpen, setZaloOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -186,19 +187,21 @@ export default function MobileHeader() {
         display: "flex", flexDirection: "column", gap: "12px", zIndex: 9990,
       }}>
         {/* Zalo */}
-        <a href="https://zalo.me/0909000000" target="_blank" rel="noopener noreferrer" title="Chat Zalo"
+        <button
+          onClick={() => setZaloOpen((v) => !v)}
+          title="Chat Zalo"
           style={{
             width: "52px", height: "52px", borderRadius: "50%",
             background: "#0068ff", display: "flex", alignItems: "center", justifyContent: "center",
             boxShadow: "0 4px 14px rgba(0,104,255,0.5)",
             animation: "zalo-shake 1.2s ease-in-out infinite",
-            position: "relative", textDecoration: "none",
+            position: "relative", border: "none", cursor: "pointer", padding: 0,
           }}
         >
           <span style={{ position: "absolute", inset: "-4px", borderRadius: "50%", border: "3px solid #ff2222", animation: "zalo-ring 1.2s ease-out infinite" }} />
           <span style={{ position: "absolute", inset: "-10px", borderRadius: "50%", border: "2px solid #ff4444", animation: "zalo-ring 1.2s ease-out infinite 0.3s" }} />
           <img src="/zalo-icon.svg" alt="Zalo" width="36" height="36" />
-        </a>
+        </button>
 
         {/* AI */}
         <button onClick={() => setAiOpen((v) => !v)} title="Hỏi AI BĐS"
@@ -219,6 +222,79 @@ export default function MobileHeader() {
           </svg>
         </button>
       </div>
+
+      {/* === ZALO POPUP === */}
+      {zaloOpen && (
+        <div style={{
+          position: "fixed", bottom: "90px", right: "16px",
+          width: "280px", background: "white", borderRadius: "16px",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.25)", zIndex: 9991,
+          overflow: "hidden",
+        }}>
+          {/* Header */}
+          <div style={{
+            background: "linear-gradient(135deg, #0068ff 0%, #00aaff 100%)",
+            padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between",
+          }}>
+            <div style={{ color: "white", fontWeight: "bold", fontSize: "14px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <img src="/zalo-icon.svg" alt="Zalo" width="22" height="22" />
+              Liên hệ Zalo
+            </div>
+            <button onClick={() => setZaloOpen(false)}
+              style={{ background: "none", border: "none", color: "white", fontSize: "20px", cursor: "pointer", lineHeight: 1 }}>×</button>
+          </div>
+
+          {/* Nội dung */}
+          <div style={{ padding: "16px", fontSize: "13px", color: "#374151" }}>
+            {/* Avatar + tên */}
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
+              <div style={{
+                width: "52px", height: "52px", borderRadius: "50%",
+                background: "linear-gradient(135deg, #0068ff, #00aaff)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                flexShrink: 0,
+              }}>
+                <span style={{ fontSize: "22px" }}>🏠</span>
+              </div>
+              <div>
+                <div style={{ fontWeight: "700", fontSize: "15px", color: "#111827" }}>BDS.com</div>
+                <div style={{ fontSize: "12px", color: "#6b7280" }}>Tư vấn bất động sản</div>
+                <div style={{ display: "flex", alignItems: "center", gap: "4px", marginTop: "2px" }}>
+                  <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e", display: "inline-block" }} />
+                  <span style={{ fontSize: "11px", color: "#22c55e", fontWeight: "600" }}>Đang hoạt động</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Số điện thoại */}
+            <div style={{ background: "#f3f4f6", borderRadius: "10px", padding: "10px 14px", marginBottom: "10px" }}>
+              <div style={{ fontSize: "11px", color: "#9ca3af", marginBottom: "2px" }}>Số Zalo</div>
+              <div style={{ fontWeight: "700", fontSize: "16px", color: "#0068ff", letterSpacing: "0.5px" }}>0909 000 000</div>
+            </div>
+
+            {/* Giờ hỗ trợ */}
+            <div style={{ background: "#f3f4f6", borderRadius: "10px", padding: "10px 14px", marginBottom: "14px" }}>
+              <div style={{ fontSize: "11px", color: "#9ca3af", marginBottom: "2px" }}>Giờ hỗ trợ</div>
+              <div style={{ fontWeight: "600", fontSize: "13px", color: "#374151" }}>🕗 7:00 – 21:00 hàng ngày</div>
+            </div>
+
+            {/* Nút mở Zalo */}
+            <a
+              href="https://zalo.me/0909000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block", textAlign: "center",
+                background: "linear-gradient(135deg, #0068ff 0%, #00aaff 100%)",
+                color: "white", fontWeight: "700", fontSize: "14px",
+                padding: "11px", borderRadius: "10px", textDecoration: "none",
+              }}
+            >
+              💬 Nhắn tin Zalo ngay
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* === AI CHAT POPUP === */}
       {aiOpen && (
