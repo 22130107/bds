@@ -304,6 +304,9 @@ export default function MobileHeader() {
           boxShadow: "0 8px 32px rgba(0,0,0,0.25)", zIndex: 9991,
           display: "flex", flexDirection: "column", maxHeight: "460px",
           overflow: "hidden",
+          fontFamily: "Arial, Helvetica, sans-serif",
+          fontSize: "14px",
+          lineHeight: "1.5",
         }}>
           {/* Header */}
           <div style={{
@@ -311,7 +314,7 @@ export default function MobileHeader() {
             padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between",
             flexShrink: 0,
           }}>
-            <div style={{ color: "white", fontWeight: "bold", fontSize: "14px" }}>🤖 AI Tư vấn BĐS</div>
+            <div style={{ color: "white", fontWeight: "700", fontSize: "14px" }}>🤖 AI Tư vấn BĐS</div>
             <button onClick={() => setAiOpen(false)}
               style={{ background: "none", border: "none", color: "white", fontSize: "20px", cursor: "pointer", lineHeight: 1 }}>×</button>
           </div>
@@ -319,14 +322,14 @@ export default function MobileHeader() {
           {/* Messages */}
           <div style={{ flex: 1, overflowY: "auto", padding: "12px", display: "flex", flexDirection: "column", gap: "8px" }}>
             {messages.length === 0 && (
-              <div style={{ fontSize: "13px", color: "#374151" }}>
-                <p style={{ margin: "0 0 10px", fontWeight: "600" }}>Xin chào! Tôi có thể giúp bạn:</p>
+              <div>
+                <p style={{ margin: "0 0 10px", fontWeight: "700", fontSize: "14px", color: "#111827" }}>Xin chào! Tôi có thể giúp bạn:</p>
                 {QUICK_QUESTIONS.map((q) => (
                   <div key={q} onClick={() => askAI(q)}
                     style={{
-                      padding: "8px 12px", marginBottom: "6px",
+                      padding: "9px 12px", marginBottom: "6px",
                       background: "#f3f4f6", borderRadius: "8px",
-                      cursor: "pointer", fontSize: "12px", color: "#2563eb", fontWeight: "500",
+                      cursor: "pointer", fontSize: "14px", color: "#2563eb", fontWeight: "600",
                     }}>
                     💬 {q}
                   </div>
@@ -341,11 +344,11 @@ export default function MobileHeader() {
               }}>
                 <div style={{
                   maxWidth: "85%",
-                  padding: "8px 12px",
+                  padding: "9px 12px",
                   borderRadius: msg.role === "user" ? "12px 12px 2px 12px" : "12px 12px 12px 2px",
                   background: msg.role === "user" ? "#2563eb" : "#f3f4f6",
                   color: msg.role === "user" ? "white" : "#1f2937",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   lineHeight: "1.5",
                   whiteSpace: "pre-wrap",
                 }}>
@@ -357,8 +360,8 @@ export default function MobileHeader() {
             {loading && (
               <div style={{ display: "flex", justifyContent: "flex-start" }}>
                 <div style={{
-                  padding: "8px 14px", background: "#f3f4f6", borderRadius: "12px 12px 12px 2px",
-                  fontSize: "18px", letterSpacing: "2px",
+                  padding: "9px 14px", background: "#f3f4f6", borderRadius: "12px 12px 12px 2px",
+                  fontSize: "20px", letterSpacing: "2px",
                 }}>
                   <span style={{ animation: "dot-blink 1.2s infinite 0s" }}>•</span>
                   <span style={{ animation: "dot-blink 1.2s infinite 0.2s" }}>•</span>
@@ -381,15 +384,17 @@ export default function MobileHeader() {
               placeholder="Nhập câu hỏi..."
               style={{
                 flex: 1, border: "1px solid #d1d5db", borderRadius: "8px",
-                padding: "7px 10px", fontSize: "12px", outline: "none",
+                padding: "8px 10px", fontSize: "14px", outline: "none",
+                fontFamily: "Arial, Helvetica, sans-serif",
               }}
             />
             <button onClick={() => askAI(input)} disabled={loading || !input.trim()}
               style={{
                 background: loading || !input.trim() ? "#9ca3af" : "#2563eb",
                 color: "white", border: "none", borderRadius: "8px",
-                padding: "7px 12px", cursor: loading || !input.trim() ? "not-allowed" : "pointer",
-                fontSize: "12px", fontWeight: "600",
+                padding: "8px 14px", cursor: loading || !input.trim() ? "not-allowed" : "pointer",
+                fontSize: "14px", fontWeight: "700",
+                fontFamily: "Arial, Helvetica, sans-serif",
               }}>
               Gửi
             </button>
