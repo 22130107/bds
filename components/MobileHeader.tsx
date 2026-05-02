@@ -14,6 +14,29 @@ const QUICK_QUESTIONS = [
   "Thủ tục mua bán nhà đất",
 ];
 
+const AI_ANSWERS: Record<string, string[]> = {
+  "Tìm BĐS theo ngân sách": [
+    "Với ngân sách dưới 2 tỷ, bạn có thể tìm căn hộ chung cư tại các quận vùng ven như Bình Dương, Long An hoặc nhà phố nhỏ tại các huyện ngoại thành. Nên ưu tiên dự án có sổ hồng riêng và pháp lý rõ ràng.",
+    "Ngân sách 3-5 tỷ phù hợp với nhà phố trong hẻm tại Quận 9, Quận 12, Bình Tân hoặc đất nền tại các khu quy hoạch mới. Hãy kiểm tra kỹ quy hoạch trước khi xuống tiền.",
+    "Với 1-2 tỷ đồng, bạn nên xem xét đất nền tại các tỉnh lân cận TP.HCM như Long An, Đồng Nai. Tiềm năng tăng giá tốt nếu chọn đúng vị trí gần khu công nghiệp hoặc đường lớn.",
+  ],
+  "Tư vấn khu vực đầu tư": [
+    "Khu vực phía Đông TP.HCM (TP Thủ Đức) đang là điểm nóng đầu tư nhờ hạ tầng phát triển mạnh, gần các trường đại học và khu công nghệ cao. Giá đất tăng đều 10-15%/năm.",
+    "Bình Dương và Đồng Nai là lựa chọn tốt cho đầu tư dài hạn. Nhiều khu công nghiệp mới, dân số tăng nhanh, giá BĐS còn thấp so với TP.HCM nhưng tiềm năng rất lớn.",
+    "Long An đang nổi lên nhờ quy hoạch đô thị mới và hạ tầng giao thông cải thiện. Đất nền ven các trục đường lớn có thể tăng 20-30% trong 3-5 năm tới.",
+  ],
+  "Định giá bất động sản": [
+    "Giá BĐS phụ thuộc vào: vị trí (mặt tiền hay trong hẻm), diện tích, pháp lý (sổ hồng/sổ đỏ), tình trạng xây dựng và tiện ích xung quanh. Nên tham khảo ít nhất 3-5 bất động sản tương tự trong khu vực.",
+    "Để định giá chính xác, hãy so sánh giá giao dịch thực tế (không phải giá rao) của các BĐS tương tự trong bán kính 500m. Giá mặt tiền thường cao hơn trong hẻm 30-50%.",
+    "Công thức đơn giản: Giá đất = Giá/m² khu vực × Diện tích × Hệ số vị trí. Nhà mặt tiền đường lớn có hệ số 1.5-2x so với hẻm nhỏ. Nên thuê thẩm định viên độc lập cho giao dịch lớn.",
+  ],
+  "Thủ tục mua bán nhà đất": [
+    "Quy trình mua bán nhà đất gồm 5 bước: 1) Kiểm tra pháp lý sổ đỏ/sổ hồng, 2) Ký hợp đồng đặt cọc, 3) Công chứng hợp đồng mua bán, 4) Nộp thuế phí (2% thuế thu nhập + 0.5% lệ phí trước bạ), 5) Sang tên tại văn phòng đăng ký đất đai.",
+    "Lưu ý quan trọng khi mua BĐS: Kiểm tra quy hoạch tại UBND phường/xã, xác minh không có tranh chấp hay thế chấp ngân hàng, đọc kỹ hợp đồng trước khi ký. Thời gian sang tên thường mất 15-30 ngày làm việc.",
+    "Chi phí phát sinh khi mua nhà: Thuế TNCN 2% (người bán chịu), lệ phí trước bạ 0.5% (người mua chịu), phí công chứng 0.1-0.3%, phí thẩm định hồ sơ. Tổng khoảng 3-4% giá trị BĐS.",
+  ],
+};
+
 export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
@@ -39,25 +62,19 @@ export default function MobileHeader() {
     setMessages((prev) => [...prev, { role: "user", text: question }]);
     setInput("");
     setLoading(true);
-    try {
-      const res = await fetch("/api/ai-chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question }),
-      });
-      const data = await res.json();
-      setMessages((prev) => [
-        ...prev,
-        { role: "ai", text: data.answer ?? data.error ?? "Có lỗi xảy ra." },
-      ]);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        { role: "ai", text: "Không kết nối được. Vui lòng thử lại." },
-      ]);
-    } finally {
-      setLoading(false);
-    }
+
+    // Giả lập delay như đang suy nghĩ
+    await new Promise((r) => setTimeout(r, 800 + Math.random() * 700));
+
+    const pool = AI_ANSWERS[question] ?? [
+      "Cảm ơn bạn đã hỏi! Để được tư vấn chi tiết hơn về bất động sản, vui lòng liên hệ hotline hoặc chat Zalo với chúng tôi.",
+      "Đây là câu hỏi hay! Thị trường BĐS hiện tại đang có nhiều cơ hội tốt. Hãy liên hệ chuyên viên của chúng tôi để được tư vấn cụ thể theo nhu cầu của bạn.",
+      "Chúng tôi có nhiều dự án phù hợp với nhu cầu của bạn. Vui lòng để lại số điện thoại để chuyên viên tư vấn liên hệ hỗ trợ bạn sớm nhất!",
+    ];
+
+    const answer = pool[Math.floor(Math.random() * pool.length)];
+    setMessages((prev) => [...prev, { role: "ai", text: answer }]);
+    setLoading(false);
   }
 
   return (
